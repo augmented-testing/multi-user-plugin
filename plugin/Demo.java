@@ -37,6 +37,11 @@ public class Demo {
     private int lineOffset = 0;
     private final int lineOffsetSpace = 10;
 
+    public String hello() {
+        String msg = Say.sayHello();
+        return msg;
+    }
+
     /**
      * Called when the plugin is enabled
      */

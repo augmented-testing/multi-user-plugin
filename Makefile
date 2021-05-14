@@ -1,6 +1,10 @@
+# SPDX-FileCopyrightText: 2021 Andreas Bauer
+#
+# SPDX-License-Identifier: MIT
 
 JUNIT_VERSION = 4.13.2
 JSON_SIMPLE_VERSION = 1.1.1
+HAMCREST_VERSION = 1.3
 
 .PHONY: all
 all: clean build
@@ -14,14 +18,19 @@ deps: ## Download all dependencies.
 	mkdir -p bin
 	curl -o ./bin/json-simple-$(JSON_SIMPLE_VERSION).jar https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/$(JSON_SIMPLE_VERSION)/json-simple-$(JSON_SIMPLE_VERSION).jar
 	curl -o ./bin/junit-$(JUNIT_VERSION).jar https://repo1.maven.org/maven2/junit/junit/$(JUNIT_VERSION)/junit-$(JUNIT_VERSION).jar
+	curl -o ./bin/hamcrest-all-$(HAMCREST_VERSION).jar https://repo1.maven.org/maven2/org/hamcrest/hamcrest-all/$(HAMCREST_VERSION)/hamcrest-all-$(HAMCREST_VERSION).jar
 
 .PHONY: build
-build: ## Build all plugins.
-	javac -cp "Scout.jar" ./plugin/*.java
+build: ## Build all plugins and tests.
+	javac -cp Scout.jar:bin/* ./plugin/*.java
 
 .PHONY: run
 run: build ## Run Scout with fresh build plugins.
 	java -jar Scout.jar
+
+.PHONY: test
+test: build ## Run tests
+	java -cp Scout.jar:bin/*:plugin/* org.junit.runner.JUnitCore plugin.AllTests
 
 .PHONY: help
 help:
