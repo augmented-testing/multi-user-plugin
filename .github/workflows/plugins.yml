@@ -25,5 +25,5 @@ jobs:
         java-version: ${{ matrix.jdk }}
     - name: Download dependencies
       run: make deps 
-    - name: Build
-      run: make build
+    - name: Build and Test
+      run: make test
