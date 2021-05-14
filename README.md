@@ -1,6 +1,6 @@
-# Template for Scout Plugins
+# Multi-user Plugin for Scout
 
-[![Plugins](https://github.com/augmented-testing/single-plugin-template/actions/workflows/plugins.yml/badge.svg)](https://github.com/augmented-testing/single-plugin-template/actions/workflows/plugins.yml)
+[![Plugins](https://github.com/augmented-testing/multi-user-plugin/actions/workflows/plugins.yml/badge.svg)](https://github.com/augmented-testing/multi-user-plugin/actions/workflows/plugins.yml)
 
 ## Introduction
 
