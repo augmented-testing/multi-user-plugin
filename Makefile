@@ -5,6 +5,7 @@
 JUNIT_VERSION = 4.13.2
 JSON_SIMPLE_VERSION = 1.1.1
 HAMCREST_VERSION = 1.3
+SCOUT_DIR = ../scout
 
 .PHONY: all
 all: clean build
@@ -31,6 +32,10 @@ run: build ## Run Scout with fresh build plugins.
 .PHONY: test
 test: build ## Run tests
 	java -cp Scout.jar:bin/*:plugin/* org.junit.runner.JUnitCore plugin.AllTests
+
+.PHONY: deploy
+deploy: build ## Deploy compliled artifacts to a Scout installation.
+	cp plugin/JSONStateParser.class plugin/MultiUser.class ${SCOUT_DIR}/plugin/
 
 .PHONY: help
 help:
