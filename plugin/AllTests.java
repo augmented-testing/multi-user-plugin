@@ -6,9 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-    JSONStateParserTest.class,
-    DemoTest.class,
-    SayTest.class
+    JSONStateParserTest.class
 })
 
 public class AllTests {
