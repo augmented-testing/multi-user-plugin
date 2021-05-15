@@ -4,7 +4,6 @@ import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import apple.laf.JRSUIConstants.Widget;
 import scout.AppState;
 import scout.Widget.WidgetVisibility;
 
@@ -61,6 +60,21 @@ public class JSONStateParserTest {
 
     @Test
     public void testStateWidgetAsSimpleJSONObject() {
+        // TODO: Implement
+    }
+
+    @Test
+    public void testParseCompleteAppState() {
+        // TODO: Implement
+    }
+
+    @Test
+    public void testParseState() {
+        // TODO: Implement
+    }
+
+    @Test
+    public void testParseWidget() {
         // TODO: Implement
     }
 

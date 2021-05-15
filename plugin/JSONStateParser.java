@@ -167,4 +167,113 @@ public class JSONStateParser {
     // ********************************************
     // * Parse JSONObjects to Scout objects       *
     // ********************************************
+
+	public static AppState parseCompleteAppState(JSONObject jsonState) {
+		List<Widget> allWidgets = new LinkedList<>();	
+		AppState appState = null;
+		
+		try {
+			allWidgets = parseWidgets((JSONArray)jsonState.get("all-widgets"));
+			appState = parseState((JSONObject)jsonState.get("state"), allWidgets);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return appState;
+	}
+
+	public static AppState parseState(JSONObject jsonState, List<Widget> allWidgets) {
+		String id = (String) jsonState.get("id");
+		String bookmark = (String) jsonState.get("bookmarks");
+		JSONArray jsonWidgets = (JSONArray) jsonState.get("visible-widgets");
+		
+		List<Widget> visibleWidgets = new LinkedList<>();
+		Iterator i = jsonWidgets.iterator();
+		while(i.hasNext()) {
+			JSONObject item = (JSONObject)i.next();
+			String widgetID = (String)item.get("id");
+			Widget widget = allWidgets.stream()
+			.filter(w -> w.getId().equals(widgetID))
+			.findFirst()
+			.orElse(null);
+			
+			JSONObject jsonMetaData = (JSONObject)item.get("meta-data");
+			if (jsonMetaData != null) {
+				String matchingWidgetId = String.valueOf(jsonMetaData.get("matching_widget"));
+				if (matchingWidgetId != null && matchingWidgetId.length() > 0) {
+					Widget matchingWidget = allWidgets.stream()
+					.filter(w -> w.getId().equals(matchingWidgetId))
+					.findFirst()
+					.orElse(null);
+					widget.putMetadata("matching_widget", matchingWidget);
+				}
+			}
+			
+			JSONObject nextStatJsonObject = (JSONObject)item.get("next-state");
+			if (nextStatJsonObject != null) {
+				AppState nextState = parseState(nextStatJsonObject, allWidgets);
+				widget.setNextState(nextState);
+			}
+			visibleWidgets.add(widget);
+		}
+		
+		AppState state = new AppState(id, bookmark);
+		state.addWidgets(visibleWidgets, WidgetVisibility.VISIBLE, null);
+
+		return state;
+	}
+
+	public static List<Widget> parseWidgets(JSONArray jsonWidgets) {
+		List<Widget> widgets = new ArrayList<>();
+		Iterator i = jsonWidgets.iterator();
+
+		while (i.hasNext()) {
+			JSONObject jsonWidget = (JSONObject) i.next();
+			Widget widget = parseWidget(jsonWidget);
+			widgets.add(widget);
+		}
+		return widgets;
+	}
+
+	public static Widget parseWidget(JSONObject jsonWidget) {
+		Widget widget = new Widget();
+		widget.setId((String)jsonWidget.get("id"));
+		widget.setText((String)jsonWidget.get("text"));
+		widget.setCreatedBy((String)jsonWidget.get("created-by"));
+		widget.setCreatedByPlugin((String)jsonWidget.get("created-by-plugin"));
+		widget.setComment((String)jsonWidget.get("comment"));
+		widget.setWidgetVisibility(WidgetVisibility.valueOf((String)jsonWidget.get("visibility")));
+		
+		String weightStr = String.valueOf(jsonWidget.get("weight"));
+		Double weight = Double.parseDouble(weightStr);
+		widget.setWeight(weight);
+	
+		String type = (String)jsonWidget.get("type");
+		widget.setWidgetType(WidgetType.valueOf(type));
+		
+		String subType = (String)jsonWidget.get("subtype");
+		widget.setWidgetSubtype(WidgetSubtype.valueOf(subType));
+
+		JSONObject locRec = (JSONObject)jsonWidget.get("location");
+		if (locRec != null) {
+			int locX = Integer.parseInt((String)locRec.get("x"));
+			int locY = Integer.parseInt((String)locRec.get("y"));
+			int locWidth = Integer.parseInt((String)locRec.get("width"));
+			int locHeight = Integer.parseInt((String)locRec.get("height"));
+			widget.setLocationArea(new java.awt.Rectangle(locX, locY, locHeight, locWidth));
+		}
+
+		JSONObject jsonMetadata = (JSONObject)jsonWidget.get("meta-data");
+		widget.putMetadata("type", (String)jsonMetadata.get("type"));
+		widget.putMetadata("title", (String)jsonMetadata.get("title"));
+		widget.putMetadata("xpath", (String)jsonMetadata.get("xpath"));
+		widget.putMetadata("name", (String)jsonMetadata.get("name"));
+		widget.putMetadata("href", (String)jsonMetadata.get("href"));
+		widget.putMetadata("id", (String)jsonMetadata.get("id"));
+		widget.putMetadata("text", (String)jsonMetadata.get("text"));
+		widget.putMetadata("tag", (String)jsonMetadata.get("tag"));
+		widget.putMetadata("class", (String)jsonMetadata.get("class"));
+
+		return widget;
+	}
 }
