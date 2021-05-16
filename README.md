@@ -4,9 +4,7 @@
 
 ## Introduction
 
-Scout is a tool using a novel approach we call Augmented Testing (AT) to simplify Visual GUI Testing (VGT).
-
-This repository serves as a template to develop a plugin for Scout without the complete Scout environment.
+The multi-user plugin for Scout enables collaborative testing.
 
 The main repository for Scout can be found [here](https://github.com/augmented-testing/scout).
 
@@ -20,20 +18,14 @@ JRE version 8 or later is suitable for running Scout.
 You can run Scout either by clicking on the `Scout.jar` or using the command `java -jar Scout.jar`.
 Before you can run Scout for the first time you have to build all plugins with `make build`.
 
-## Plugin Development
-
-Scout is a highly customizable tool due its plugin architecture. If you want to extend Scout's functionalities just create a new plugin in the `plugin/` folder.
-
-A plugin should be independent and therefore should not contain any external dependencies. If necessary, external libs must be copied to the `bin/` directory. A good idea for plugin development (and development in general) is to follow the Keep it Simple/Stupid (KISS) principle.
-
-If you have to mange multiple Java versions you could use the tool [SDKMAN](https://sdkman.io) which helps to maintain multiple JDK versions.
-
 ### Build and Run
 
 Build automation is accomplished using a Makefile. To get an overview of all provided make targets run `make help`.
 
-- To **build** all plugins: `make build`.
-- To **build** all plugins and **run** Scout: `make run`.
+- To **download** all dependencies: `make deps`.
+- To **build** the plugin: `make build`.
+- To **build** the plugin and perform **tests**: `make test`.
+- To **deploy** the plugin to an existing Scout installation: `make deploy`.
 
 ### VSCode
 
