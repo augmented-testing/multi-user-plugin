@@ -1,16 +1,12 @@
 package plugin;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static plugin.JSONStateParser.locationAreaAsJSONObject;
+
 import org.json.simple.JSONObject;
-import org.junit.Assert;
 import org.junit.Test;
-
-import scout.AppState;
-import scout.Widget.WidgetVisibility;
-
-import static org.junit.Assert.*;
-import static plugin.JSONStateParser.*;
-
-import java.util.HashMap;
 
 public class JSONStateParserTest {
     
