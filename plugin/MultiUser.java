@@ -6,6 +6,7 @@ package plugin;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -85,7 +86,10 @@ public class MultiUser {
             FileReader reader = new FileReader(filepath);			
             jsonState = (JSONObject) jsonParser.parse(reader);
             reader.close();
-        } catch (Exception e) {
+        } catch(FileNotFoundException nfe) {
+            System.out.println("State model file not found at location '"+ filepath+"'. Start with empty model.");
+            return null;
+        } catch(Exception e) {
             e.printStackTrace();
             return null;
         }
