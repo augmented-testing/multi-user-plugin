@@ -19,11 +19,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
+    - name: Set up JDK
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.jdk }}
-    - name: Download dependencies
-      run: make deps 
-    - name: Build and Test
-      run: make test
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: Build
+      run: mvn compile
+    - name: Test
+      run: mvn test

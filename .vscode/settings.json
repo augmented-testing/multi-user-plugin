@@ -1,9 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "bin/**/*.jar",
-        "Scout.jar"
-    ],
-    "files.exclude": {
-        "**/*.class": true
-    }
-}

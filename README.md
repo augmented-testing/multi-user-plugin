@@ -11,33 +11,28 @@ The main repository for Scout can be found [here](https://github.com/augmented-t
 ## Requirements
 
 Scout is developed in Java and therefore requires the Java Runtime Environment (JRE).
-JRE version 8 or later is suitable for running Scout.
-
-## Run Scout
-
-You can run Scout either by clicking on the `Scout.jar` or using the command `java -jar Scout.jar`.
-Before you can run Scout for the first time you have to build all plugins with `make build`.
+JRE version 8 or later is suitable for running Scout and its plugins.
 
 ### Build and Run
 
-Build automation is accomplished using a Makefile. To get an overview of all provided make targets run `make help`.
+Build automation is accomplished using a Maven. Use the following Maven command:
 
-- To **download** all dependencies: `make deps`.
-- To **build** the plugin: `make build`.
-- To **build** the plugin and perform **tests**: `make test`.
-- To **deploy** the plugin to an existing Scout installation: `make deploy`.
+- To **build** the plugin: `mvn compile`.
+- To **build** the plugin and perform **tests**: `mvn test`.
+- To **install** the plugin to an existing Scout installation: `mvn install`.
+
+The installation path for the plugin can be adjusted in the `pom.xml` at the `maven-resources-plugin` configuration.
+
+## Run Plugin with Scout
+
+Copy the compiled class files either by executing  `mvn install` or manual copying to the plugin folder of your Scout installation.
+If you don't have Scout installed yet, you can download it from the [main repository](https://github.com/augmented-testing/scout).
 
 ### VSCode
 
 If you decide to use VSCode as IDE than you have to install the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) to be able to develop a plugin.
 
 You can find more information about how to manage Java projects in VSCode following this [link](https://code.visualstudio.com/docs/java/java-project).
-
-### IntelliJ
-
-If you use IntelliJ we recommend you to use the [Makefile Language](https://plugins.jetbrains.com/plugin/9333-makefile-language) extension to use the already defined build and run tasks. See the screenshot.
-
-![IntelliJ Run Config](intellij-run-config.png)
 
 ## License
 
