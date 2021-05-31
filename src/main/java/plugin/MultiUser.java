@@ -4,6 +4,9 @@
 
 package plugin;
 
+import static plugin.JSONStateParser.appStateAsJSONObject;
+import static plugin.JSONStateParser.parseCompleteAppState;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,8 +28,7 @@ import org.json.simple.parser.JSONParser;
 
 import scout.AppState;
 import scout.StateController;
-
-import static plugin.JSONStateParser.*;
+import scout.Widget;
 
 public class MultiUser {
 
@@ -36,6 +38,10 @@ public class MultiUser {
 
     public MultiUser() {
         StateController.setProducts(getFolders(DATA_FILEPATH));
+    }
+
+    public MultiUser(List<String> products) {
+        StateController.setProducts(products);
     }
 
     /**
@@ -166,6 +172,35 @@ public class MultiUser {
         } catch (Exception e) {
             return new LinkedList<>();
         } 
+    }
+    
+    protected boolean isSameWidget(Widget widget, Widget other) {
+        if (widget == null || other == null) {
+            return false;
+        }
+
+        boolean isSameType = widget.getWidgetType().equals(other.getWidgetType());
+        boolean isSameSubType = widget.getWidgetSubtype().equals(other.getWidgetSubtype());
+        boolean isSameVisibility = widget.getWidgetVisibility().equals(other.getWidgetVisibility());
+
+        boolean isSameHref = hasEqualMetaData("href", widget, other);
+        boolean isSameXpath = hasEqualMetaData("xpath", widget, other);
+        boolean isSameText = hasEqualMetaData("text", widget, other);
+        boolean isSameTag = hasEqualMetaData("tag", widget, other);
+        boolean isSameClass = hasEqualMetaData("class", widget, other);
+        
+        return isSameType
+            && isSameSubType
+            && isSameVisibility
+            && isSameHref 
+            && isSameXpath
+            && isSameText
+            && isSameTag
+            && isSameClass;
+    }
+
+    protected boolean hasEqualMetaData(String key, Widget widget, Widget other) {
+        return String.valueOf(widget.getMetadata(key)).equals(String.valueOf(other.getMetadata(key)));
     }
     
 }
