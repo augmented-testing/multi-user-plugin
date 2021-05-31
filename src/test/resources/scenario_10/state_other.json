@@ -1,0 +1,545 @@
+{
+  "product": "MYM",
+  "paths": [
+    {
+      "product-version": "1",
+      "tester": "Andreas",
+      "created-at": "Mon May 17 12:01:52 CEST 2021",
+      "id": "16212457129960",
+      "widgets": [
+        "16212457189914",
+        "162124572713395",
+        "16212457325424",
+        "162124573530119",
+        "162124574889049",
+        "16212457535564",
+        "162124575555994"
+      ],
+      "session-duration": 50025,
+      "session-id": null
+    }
+  ],
+  "all-widgets": [
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "matching_widget": "162124576285787",
+        "match_time": "1",
+        "match_score": "575",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/a[1]",
+        "children": "1",
+        "execute_time": "49",
+        "name": "",
+        "href": "https://somesite.com/login",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "A",
+        "class": "v-btn v-btn--flat v-btn--router v-btn--text theme--dark v-size--default"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "970", "width": "117", "y": "14", "height": "36" },
+      "id": "16212457189914",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/button[2]",
+        "children": "1",
+        "execute_time": "27",
+        "name": "",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "BUTTON",
+        "type": "submit",
+        "title": "",
+        "class": "v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "858", "width": "101", "y": "349", "height": "36" },
+      "id": "162124573530119",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "162124575355639",
+        "match_time": "1",
+        "match_score": "525",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "40",
+        "id": "",
+        "text": "Rezept Übersicht",
+        "tag": "DIV",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "150", "y": "105", "height": "30" },
+      "id": "16212457518076",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "alt": "",
+        "type": "password",
+        "title": "",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
+        "children": "0",
+        "execute_time": "27",
+        "name": "",
+        "id": "input-73",
+        "placeholder": "",
+        "text": "",
+        "tag": "INPUT",
+        "class": "",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "TYPE_ACTION",
+      "comment": null,
+      "location": { "x": "580", "width": "348", "y": "251", "height": "32" },
+      "id": "16212457325424",
+      "text": "123456",
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[2]/div[1]/div[1]/a[1]",
+        "children": "2",
+        "execute_time": "24",
+        "name": "",
+        "href": "https://somesite.com/",
+        "id": "",
+        "text": "Startseite",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-list-item v-list-item--link theme--light"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "0", "width": "256", "y": "72", "height": "48" },
+      "id": "162124575555994",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[2]/div[1]/div[1]/a[3]",
+        "children": "2",
+        "execute_time": "28",
+        "name": "",
+        "href": "https://somesite.com/recipes",
+        "id": "",
+        "text": "Rezepte",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-list-item v-list-item--link theme--light"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "0", "width": "256", "y": "168", "height": "48" },
+      "id": "162124574889049",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "16212457499052",
+        "match_time": "1",
+        "match_score": "525",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "152",
+        "id": "",
+        "text": "Letzte Aktivitäten",
+        "tag": "DIV",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "154", "y": "153", "height": "30" },
+      "id": "162124573889991",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "alt": "",
+        "type": "text",
+        "title": "",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
+        "children": "0",
+        "execute_time": "32",
+        "name": "",
+        "id": "input-70",
+        "placeholder": "",
+        "text": "",
+        "tag": "INPUT",
+        "class": "",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "TYPE_ACTION",
+      "comment": null,
+      "location": { "x": "580", "width": "376", "y": "181", "height": "32" },
+      "id": "162124572713395",
+      "text": "andreas@somedomain.com",
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/button[2]",
+        "children": "1",
+        "execute_time": "40",
+        "name": "",
+        "id": "",
+        "text": "Abmelden",
+        "tag": "BUTTON",
+        "type": "button",
+        "title": "",
+        "class": "v-btn v-btn--flat v-btn--text theme--dark v-size--default",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "1125", "width": "138", "y": "14", "height": "36" },
+      "id": "16212457535564",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "162124574990553",
+        "match_time": "1",
+        "match_score": "475",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/span[2]",
+        "children": "0",
+        "execute_time": "152",
+        "id": "",
+        "text": "andreas@somedomain.com",
+        "tag": "SPAN",
+        "class": ""
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "991", "width": "134", "y": "20", "height": "24" },
+      "id": "162124574079743",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/a[1]",
+        "children": "1",
+        "execute_time": "49",
+        "name": "",
+        "href": "https://somesite.com/login",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-btn v-btn--flat v-btn--router v-btn--text theme--dark v-size--default"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "970", "width": "117", "y": "14", "height": "36" },
+      "id": "162124576285787",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "40",
+        "id": "",
+        "text": "Rezept Übersicht",
+        "tag": "DIV",
+        "title": "",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "150", "y": "105", "height": "30" },
+      "id": "162124575355639",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "152",
+        "id": "",
+        "text": "Letzte Aktivitäten",
+        "tag": "DIV",
+        "title": "",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "154", "y": "153", "height": "30" },
+      "id": "16212457499052",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/span[2]",
+        "children": "0",
+        "execute_time": "152",
+        "id": "",
+        "text": "andreas@somedomain.com",
+        "tag": "SPAN",
+        "title": "",
+        "class": ""
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "991", "width": "134", "y": "20", "height": "24" },
+      "id": "162124574990553",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    }
+  ],
+  "state": {
+    "bookmarks": "Home",
+    "visible-widgets": [
+      {
+        "next-state": {
+          "bookmarks": null,
+          "visible-widgets": [
+            {
+              "next-state": {
+                "bookmarks": null,
+                "visible-widgets": [
+                  {
+                    "next-state": {
+                      "bookmarks": null,
+                      "visible-widgets": [
+                        {
+                          "next-state": {
+                            "bookmarks": null,
+                            "visible-widgets": [
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [],
+                                  "product-version": [],
+                                  "id": "162124573889992"
+                                },
+                                "id": "162124573889991"
+                              },
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [],
+                                  "product-version": [],
+                                  "id": "162124574079744"
+                                },
+                                "id": "162124574079743"
+                              },
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [
+                                    {
+                                      "next-state": {
+                                        "bookmarks": null,
+                                        "visible-widgets": [],
+                                        "product-version": [],
+                                        "id": "16212457518077"
+                                      },
+                                      "id": "16212457518076"
+                                    },
+                                    {
+                                      "next-state": {
+                                        "bookmarks": null,
+                                        "visible-widgets": [
+                                          {
+                                            "next-state": null,
+                                            "id": "162124575555994"
+                                          }
+                                        ],
+                                        "product-version": ["1"],
+                                        "id": "16212457545676"
+                                      },
+                                      "id": "16212457535564"
+                                    }
+                                  ],
+                                  "product-version": ["1"],
+                                  "id": "16212457507655"
+                                },
+                                "id": "162124574889049"
+                              }
+                            ],
+                            "product-version": ["1"],
+                            "id": "16212457361354"
+                          },
+                          "id": "162124573530119"
+                        }
+                      ],
+                      "product-version": ["1"],
+                      "id": "16212457333793"
+                    },
+                    "id": "16212457325424"
+                  }
+                ],
+                "product-version": ["1"],
+                "id": "16212457280172"
+              },
+              "id": "162124572713395"
+            }
+          ],
+          "product-version": ["1"],
+          "id": "16212457209281"
+        },
+        "id": "16212457189914"
+      }
+    ],
+    "product-version": ["1"],
+    "id": "0"
+  },
+  "issues": []
+}

@@ -5,11 +5,29 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static plugin.JSONStateParser.locationAreaAsJSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import scout.Widget;
+
 public class JSONStateParserTest {
-    
+   
+    private static JSONObject modelJSON;
+
+    @BeforeClass
+    public static void setup() throws Exception {
+        String filePath = JSONStateParser.class.getClassLoader().getResource("scenario_10/state.json").getPath();
+        modelJSON = loadJSONModel(filePath);
+    }
+
     @Test
     public void testAppStateAsJSONObject() {
         // TODO: Implement
@@ -71,7 +89,23 @@ public class JSONStateParserTest {
 
     @Test
     public void testParseWidget() {
-        // TODO: Implement
+        JSONArray allWidgetsJSON = (JSONArray)modelJSON.get("all-widgets");
+        JSONObject firstWidget = (JSONObject)allWidgetsJSON.iterator().next();
+
+        Widget result = JSONStateParser.parseWidget(firstWidget);
+
+        assertNotNull(result);
+        assertEquals("162124546053328", result.getId());
+    }
+
+    private static JSONObject loadJSONModel(String filepath) throws FileNotFoundException, IOException, ParseException{
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader(filepath);			
+        
+        JSONObject jsonModel = (JSONObject) jsonParser.parse(reader);
+        reader.close();
+        
+        return jsonModel;
     }
 
 }

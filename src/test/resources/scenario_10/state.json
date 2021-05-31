@@ -1,0 +1,545 @@
+{
+  "product": "MYM",
+  "paths": [
+    {
+      "product-version": "1",
+      "tester": "Andreas",
+      "created-at": "Mon May 17 11:56:41 CEST 2021",
+      "id": "16212454011760",
+      "widgets": [
+        "162124543220764",
+        "162124543930275",
+        "162124544379288",
+        "16212454465295",
+        "162124545582218",
+        "16212454633346",
+        "162124547047918"
+      ],
+      "session-duration": 75086,
+      "session-id": null
+    }
+  ],
+  "all-widgets": [
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "162124546426046",
+        "match_time": "3",
+        "match_score": "525",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "61",
+        "id": "",
+        "text": "Lebensmittel Übersicht",
+        "tag": "DIV",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "205", "y": "105", "height": "30" },
+      "id": "162124546053328",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "alt": "",
+        "type": "password",
+        "title": "",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
+        "children": "0",
+        "execute_time": "40",
+        "name": "",
+        "id": "input-73",
+        "placeholder": "",
+        "text": "",
+        "tag": "INPUT",
+        "class": "",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "TYPE_ACTION",
+      "comment": null,
+      "location": { "x": "580", "width": "348", "y": "251", "height": "32" },
+      "id": "162124544379288",
+      "text": "123456",
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "matching_widget": "162124547590463",
+        "match_time": "2",
+        "match_score": "575",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/a[1]",
+        "children": "1",
+        "execute_time": "24",
+        "name": "",
+        "href": "https://somesite.com/login",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "A",
+        "class": "v-btn v-btn--flat v-btn--router v-btn--text theme--dark v-size--default"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "970", "width": "117", "y": "14", "height": "36" },
+      "id": "162124543220764",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/button[2]",
+        "children": "1",
+        "execute_time": "52",
+        "name": "",
+        "id": "",
+        "text": "Abmelden",
+        "tag": "BUTTON",
+        "type": "button",
+        "title": "",
+        "class": "v-btn v-btn--flat v-btn--text theme--dark v-size--default",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "1125", "width": "138", "y": "14", "height": "36" },
+      "id": "16212454633346",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "162124545582325",
+        "match_time": "3",
+        "match_score": "525",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "49",
+        "id": "",
+        "text": "Letzte Aktivitäten",
+        "tag": "DIV",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "154", "y": "153", "height": "30" },
+      "id": "162124545107773",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[2]/div[1]/div[1]/a[1]",
+        "children": "2",
+        "execute_time": "37",
+        "name": "",
+        "href": "https://somesite.com/",
+        "id": "",
+        "text": "Startseite",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-list-item v-list-item--link theme--light"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "0", "width": "256", "y": "72", "height": "48" },
+      "id": "162124547047918",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "alt": "",
+        "type": "text",
+        "title": "",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
+        "children": "0",
+        "execute_time": "31",
+        "name": "",
+        "id": "input-70",
+        "placeholder": "",
+        "text": "",
+        "tag": "INPUT",
+        "class": "",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "TYPE_ACTION",
+      "comment": null,
+      "location": { "x": "580", "width": "376", "y": "181", "height": "32" },
+      "id": "162124543930275",
+      "text": "andreas@somedomain.com",
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "matching_widget": "162124545582376",
+        "match_time": "3",
+        "match_score": "475",
+        "title": "",
+        "match_percent": "100",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/span[2]",
+        "children": "0",
+        "execute_time": "49",
+        "id": "",
+        "text": "andreas@somedomain.com",
+        "tag": "SPAN",
+        "class": ""
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "991", "width": "134", "y": "20", "height": "24" },
+      "id": "162124545300425",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "VALID"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/button[2]",
+        "children": "1",
+        "execute_time": "24",
+        "name": "",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "BUTTON",
+        "type": "submit",
+        "title": "",
+        "class": "v-btn v-btn--contained v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary",
+        "value": ""
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "858", "width": "101", "y": "349", "height": "36" },
+      "id": "16212454465295",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/nav[2]/div[1]/div[1]/a[2]",
+        "children": "2",
+        "execute_time": "49",
+        "name": "",
+        "href": "https://somesite.com/victuals",
+        "id": "",
+        "text": "Lebensmittel",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-list-item v-list-item--link theme--light"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "0", "width": "256", "y": "120", "height": "48" },
+      "id": "162124545582218",
+      "text": null,
+      "created-by": "Andreas",
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "61",
+        "id": "",
+        "text": "Lebensmittel Übersicht",
+        "tag": "DIV",
+        "title": "",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "205", "y": "105", "height": "30" },
+      "id": "162124546426046",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/a[1]",
+        "children": "1",
+        "execute_time": "24",
+        "name": "",
+        "href": "https://somesite.com/login",
+        "id": "",
+        "text": "Anmelden",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "v-btn v-btn--flat v-btn--router v-btn--text theme--dark v-size--default"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "970", "width": "117", "y": "14", "height": "36" },
+      "id": "162124547590463",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/div[1]",
+        "children": "0",
+        "execute_time": "49",
+        "id": "",
+        "text": "Letzte Aktivitäten",
+        "tag": "DIV",
+        "title": "",
+        "class": "v-toolbar__title"
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "409", "width": "154", "y": "153", "height": "30" },
+      "id": "162124545582325",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0.0,
+      "meta-data": {
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/span[2]",
+        "children": "0",
+        "execute_time": "49",
+        "id": "",
+        "text": "andreas@somedomain.com",
+        "tag": "SPAN",
+        "title": "",
+        "class": ""
+      },
+      "reported-by": null,
+      "type": "CHECK",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": { "x": "991", "width": "134", "y": "20", "height": "24" },
+      "id": "162124545582376",
+      "text": null,
+      "created-by": null,
+      "reported-data": null,
+      "status": "UNLOCATED"
+    }
+  ],
+  "state": {
+    "bookmarks": "Home",
+    "visible-widgets": [
+      {
+        "next-state": {
+          "bookmarks": null,
+          "visible-widgets": [
+            {
+              "next-state": {
+                "bookmarks": null,
+                "visible-widgets": [
+                  {
+                    "next-state": {
+                      "bookmarks": null,
+                      "visible-widgets": [
+                        {
+                          "next-state": {
+                            "bookmarks": null,
+                            "visible-widgets": [
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [],
+                                  "product-version": [],
+                                  "id": "162124545107774"
+                                },
+                                "id": "162124545107773"
+                              },
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [],
+                                  "product-version": [],
+                                  "id": "162124545300426"
+                                },
+                                "id": "162124545300425"
+                              },
+                              {
+                                "next-state": {
+                                  "bookmarks": null,
+                                  "visible-widgets": [
+                                    {
+                                      "next-state": {
+                                        "bookmarks": null,
+                                        "visible-widgets": [],
+                                        "product-version": [],
+                                        "id": "162124546053329"
+                                      },
+                                      "id": "162124546053328"
+                                    },
+                                    {
+                                      "next-state": {
+                                        "bookmarks": null,
+                                        "visible-widgets": [
+                                          {
+                                            "next-state": null,
+                                            "id": "162124547047918"
+                                          }
+                                        ],
+                                        "product-version": ["1"],
+                                        "id": "16212454650966"
+                                      },
+                                      "id": "16212454633346"
+                                    }
+                                  ],
+                                  "product-version": ["1"],
+                                  "id": "16212454566705"
+                                },
+                                "id": "162124545582218"
+                              }
+                            ],
+                            "product-version": ["1"],
+                            "id": "16212454473604"
+                          },
+                          "id": "16212454465295"
+                        }
+                      ],
+                      "product-version": ["1"],
+                      "id": "16212454446423"
+                    },
+                    "id": "162124544379288"
+                  }
+                ],
+                "product-version": ["1"],
+                "id": "16212454401672"
+              },
+              "id": "162124543930275"
+            }
+          ],
+          "product-version": ["1"],
+          "id": "16212454339341"
+        },
+        "id": "162124543220764"
+      }
+    ],
+    "product-version": ["1"],
+    "id": "0"
+  },
+  "issues": []
+}
