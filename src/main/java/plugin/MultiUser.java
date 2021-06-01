@@ -16,10 +16,13 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -32,6 +35,7 @@ import scout.Widget;
 
 public class MultiUser {
 
+    private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private static final String DATA_FILEPATH = "data";
     private static final String MODEL_FILENAME = "state.json";
     private static final String PRODUCT_PROPERTIES_FILE = "product.properties";
@@ -199,8 +203,91 @@ public class MultiUser {
             && isSameClass;
     }
 
+    protected AppState mergeAppState(AppState state, AppState other) {
+        if (state == null && other == null) {
+            throw new IllegalArgumentException("Expected AppState arguments to be not null at the same time");
+        }
+
+        if (state == null) {
+            return other;
+        }
+
+        if (other == null) {
+            return state;
+        }
+
+        Map<Widget,Widget> sameWidgets = new HashMap<>();
+        List<Widget> diffWidgets = new LinkedList<>();
+        
+        for (Widget widget : state.getVisibleActions()) {
+            boolean foundMatch = false;
+            for (Widget otherWidget : other.getVisibleActions() ) {
+                if (isSameWidget(widget, otherWidget)) {
+                    sameWidgets.put(otherWidget, widget);
+                    foundMatch = true;
+                }
+            }
+            if (!foundMatch) {
+                diffWidgets.add(widget);
+            }
+        }
+        
+        diffWidgets.addAll(other.getVisibleActions().stream()
+            .filter(o -> sameWidgets.get(o) == null)
+            .collect(Collectors.toList())
+        );                  
+        
+        String bookmark = chooseStrValue(state.getBookmark(), other.getBookmark());
+        AppState resultState = new AppState(state.getId(), bookmark);
+        diffWidgets.forEach(w -> resultState.addWidget(w));
+        
+        for (Widget otherWidget: sameWidgets.keySet()) {
+            Widget widget = sameWidgets.get(otherWidget);
+            Widget merged = mergeSameWidgets(widget, otherWidget);
+
+            if (widget.getNextState() != null || otherWidget.getNextState() != null) {
+                AppState nextState = mergeAppState(widget.getNextState(), otherWidget.getNextState());
+                merged.setNextState(nextState);
+            }
+
+            resultState.addWidget(merged);
+        }
+
+        return resultState;
+    }
+
+    protected String chooseStrValue(String value, String otherValue) {
+        if (value == null && otherValue == null) {
+            return null;
+        }
+
+        if (value == null || value.isBlank()) {
+            return otherValue;
+        } 
+
+        return value;
+    }
+
+    protected Widget mergeSameWidgets(Widget widget, Widget other) {
+        log("Merge widgets with ID '"+widget.getId()+"' and '"+other.getId()+"'" );
+        
+        Widget result = new Widget(widget);
+        result.setId(widget.getId());
+
+        other.getMetadataKeys().stream()
+            .filter(key -> widget.getMetadata(key) == null)
+            .forEach(key -> result.putMetadata(key, other.getMetadata(key)));
+
+        result.setNextState(null);
+        return result;
+    }
+
     protected boolean hasEqualMetaData(String key, Widget widget, Widget other) {
         return String.valueOf(widget.getMetadata(key)).equals(String.valueOf(other.getMetadata(key)));
     }
-    
+
+    private void log(String message) {
+        String now = formatter.format(new Date());
+        System.out.printf("[%s] %s \n", now, message);
+    }
 }
