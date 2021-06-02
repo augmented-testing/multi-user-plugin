@@ -261,7 +261,7 @@ public class MultiUser {
             return null;
         }
 
-        if (value == null || value.isBlank()) {
+        if (value == null || value.isEmpty()) {
             return otherValue;
         } 
 
