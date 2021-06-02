@@ -145,6 +145,95 @@ public class MultiUserTest extends MultiUser {
         assertNull(result.getWidget("3"));
     }
 
+   /**
+    * Expected graph after merge:
+    * 
+    *    H
+    *    | 
+    *    L2
+    *    |
+    *    L3
+    *    |
+    *    L4
+    *   / \
+    * L50 L51
+    *  |   |
+    * L60 L61
+    *  |   |
+    * L70 L71 
+    */ 
+    @Test
+    public void testMergeAppState_Scenario10() throws Exception {
+        String filePath = JSONStateParser.class.getClassLoader().getResource("scenario_10/state.json").getPath();
+        AppState state = loadJSONModel(filePath);
+        String filePathOther = JSONStateParser.class.getClassLoader().getResource("scenario_10/state_other.json").getPath();
+        AppState other = loadJSONModel(filePathOther);
+
+        AppState result = mergeAppState(state, other);
+
+        assertNotNull(result);
+        assertEquals("0", result.getId());
+        assertEquals("Home", result.getBookmark());
+        assertEquals(1, result.getVisibleActions().size());
+        
+        Widget w1 = result.getVisibleActions().get(0);
+        assertEquals("162124543220764", w1.getId());
+        
+        AppState level2 = w1.getNextState();
+        assertNotNull(level2);
+        assertEquals(1, level2.getVisibleActions().size());
+        
+        Widget w2 = level2.getVisibleActions().get(0);
+        assertEquals("162124543930275", w2.getId());
+
+        AppState level3 = w2.getNextState();
+        assertNotNull(level3);
+        assertEquals(1, level3.getVisibleActions().size());
+
+        Widget w3 = level3.getVisibleActions().get(0);
+        assertEquals("162124544379288", w3.getId());
+
+        AppState level4 = w3.getNextState();
+        assertNotNull(level4);
+        assertEquals(1, level4.getVisibleActions().size());
+
+        Widget w4 = level4.getVisibleActions().get(0);
+        assertEquals("16212454465295", w4.getId());
+
+        AppState level5 = w4.getNextState();
+        assertNotNull(level5);
+        assertEquals(2, level5.getVisibleActions().size());
+
+        Widget w50 = level5.getVisibleActions().get(0);
+        Widget w51 = level5.getVisibleActions().get(1);
+        assertEquals("162124545582218", w50.getId());
+        assertEquals("162124574889049", w51.getId());
+
+        AppState level60 = w50.getNextState();
+        assertNotNull(level60);
+        assertEquals(1, level60.getVisibleActions().size());
+        AppState level61 = w51.getNextState();
+        assertNotNull(level61);
+        assertEquals(1, level61.getVisibleActions().size());
+        
+        Widget w60 = level60.getVisibleActions().get(0);
+        assertEquals("16212454633346", w60.getId());
+        Widget w61 = level61.getVisibleActions().get(0);
+        assertEquals("16212457535564", w61.getId());
+        
+        AppState level70 = w60.getNextState();
+        assertNotNull(level70);
+        assertEquals(1, level70.getVisibleActions().size());
+        AppState level71 = w61.getNextState();
+        assertNotNull(level71);
+        assertEquals(1, level71.getVisibleActions().size());
+        
+        Widget w70 = level70.getVisibleActions().get(0);
+        assertEquals("162124547047918", w70.getId());
+        Widget w71 = level71.getVisibleActions().get(0);
+        assertEquals("162124575555994", w71.getId());
+    }
+
     @Test
     public void testMergeAppState_OneNullArg() {
         AppState firsState = new AppState("10","Home");
