@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static plugin.JSONStateParser.locationAreaAsJSONObject;
+import static plugin.JSONStateParser.metadataAsJSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -69,7 +70,38 @@ public class JSONStateParserTest {
     
     @Test
     public void testMetadataAsJSONObject() {
-        // TODO: Implement
+        Widget widget = new Widget();
+        widget.putMetadata("a", null);
+        widget.putMetadata("b", 42);
+        widget.putMetadata("c", "42");
+
+        JSONObject result = metadataAsJSONObject(widget);
+        
+        assertNull(result.get("a"));
+        assertEquals("42", result.get("b"));
+        assertEquals("42", result.get("c"));
+    }
+
+    @Test
+    public void testMetadataAsJSONObject_Widget() {
+        Widget widget = new Widget();
+        Widget matchingWidget = new Widget();
+        matchingWidget.setId("1234");
+        widget.putMetadata("matching_widget", matchingWidget);
+
+        JSONObject result = metadataAsJSONObject(widget);
+        
+        assertEquals("1234", result.get("matching_widget"));
+    }
+
+    @Test
+    public void testMetadataAsJSONObject_Filter() {
+        Widget widget = new Widget();
+        widget.putMetadata("neighbors", "12");
+
+        JSONObject result = metadataAsJSONObject(widget);
+        
+        assertNull(result.get("neighbors"));
     }
 
     @Test
