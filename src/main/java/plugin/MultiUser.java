@@ -79,8 +79,8 @@ public class MultiUser {
     private Properties loadProductProperties(String product, String projectRootPath) {
         try {
             Properties productProperties = new Properties();
-            String filepath = projectRootPath + "/" + PRODUCT_PROPERTIES_FILE;
-            FileInputStream in = new FileInputStream(filepath);
+            String filePath = projectRootPath + "/" + PRODUCT_PROPERTIES_FILE;
+            FileInputStream in = new FileInputStream(filePath);
             productProperties.load(in);
             in.close();
             return productProperties;
@@ -89,15 +89,15 @@ public class MultiUser {
         }
     }
 
-    private JSONObject loadJSONModel(String filepath) {
+    private JSONObject loadJSONModel(String filePath) {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonState = null;
         try {
-            FileReader reader = new FileReader(filepath);			
+            FileReader reader = new FileReader(filePath);			
             jsonState = (JSONObject) jsonParser.parse(reader);
             reader.close();
         } catch(FileNotFoundException nfe) {
-            System.out.println("State model file not found at location '"+ filepath+"'. Start with empty model.");
+            System.out.println("State model file not found at location '"+ filePath+"'. Start with empty model.");
             return null;
         } catch(Exception e) {
             e.printStackTrace();
@@ -115,17 +115,14 @@ public class MultiUser {
         AppState stateTree=StateController.getStateTree();
         String product=StateController.getProduct();
 
-        String filePath = getFilePathForProduct(product);
+        String productFilePath = getFilePathForProduct(product);
         
-        // Make sure that folders exist
-        File file=new File(filePath);
-        file.mkdirs();
+        createFolderIfNotExist(productFilePath);
         
-        // Add filename
-        filePath+="/"+MODEL_FILENAME;
+        String modelFilePath= productFilePath + "/" + MODEL_FILENAME;
 
         // Save state tree
-        if(!saveObject(filePath, stateTree)) {
+        if(!saveStateModel(modelFilePath, stateTree)) {
             return false;
         }
         
@@ -135,33 +132,57 @@ public class MultiUser {
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         
         // Save a backup
-        filePath+=dayOfWeek;
-        if(!saveObject(filePath, stateTree)) {
+        modelFilePath += dayOfWeek;
+        if(!saveStateModel(modelFilePath, stateTree)) {
             return false;
         }
 
+        String propertiesFilePath = productFilePath + "/" + PRODUCT_PROPERTIES_FILE;
+        saveProductProperties(propertiesFilePath);
+        
         // Update products
         StateController.setProducts(getFolders(DATA_FILEPATH));
         
         return true;
     }
 
-    private boolean saveObject(String filepath, AppState appState) {
+    protected void createFolderIfNotExist(String filePath) {
+        File file=new File(filePath);
+        file.mkdirs();
+    }
+
+    protected boolean saveProductProperties(String filePath) {
+        try {
+            FileWriter fileWriter = new FileWriter(filePath);
+            StateController.getProductProperties().store(fileWriter, null);
+            fileWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } 
+
+        return true;
+    }
+
+    private boolean saveStateModel(String filePath, AppState appState) {
         String jsonState = "";
         try {
             jsonState = appStateAsJSONObject(appState).toJSONString();
             
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
         
         try {
-            FileWriter fileWriter = new FileWriter(filepath);
+            FileWriter fileWriter = new FileWriter(filePath);
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.print(jsonState);
             printWriter.close();
+            fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
         return true;	
     }
