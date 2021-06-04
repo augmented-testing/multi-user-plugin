@@ -1,0 +1,331 @@
+{
+    "product": "Apple",
+    "paths": [
+      {
+        "product-version": "1",
+        "tester": "Andreas",
+        "created-at": "Thu Jun 03 15:03:24 CEST 2021",
+        "id": "16227254040480",
+        "widgets": [
+          "162272541342971",
+          "162272541697749",
+          "162272542394873",
+          "162272541342971",
+          "162272543838154",
+          "162272545281322"
+        ],
+        "session-duration": 58143,
+        "session-id": null
+      }
+    ],
+    "all-widgets": [
+      {
+        "visibility": "VISIBLE",
+        "reported-text": null,
+        "weight": 20,
+        "meta-data": {
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+          "children": "1",
+          "execute_time": "215",
+          "name": "",
+          "href": "https://www.apple.com/se/",
+          "id": "ac-gn-firstfocus",
+          "text": "Apple",
+          "tag": "A",
+          "type": "",
+          "title": "",
+          "class": "ac-gn-link ac-gn-link-apple"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": null,
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "132",
+          "width": "36",
+          "y": "0",
+          "height": "44"
+        },
+        "id": "162272545281322",
+        "text": null,
+        "created-by": "Andreas",
+        "reported-data": null,
+        "status": "UNLOCATED"
+      },
+      {
+        "visibility": "VISIBLE",
+        "reported-text": null,
+        "weight": 19,
+        "meta-data": {
+          "matching_widget": "162272543957865",
+          "match_time": "16",
+          "match_score": "550",
+          "type": "",
+          "title": "",
+          "match_percent": "100",
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
+          "children": "2",
+          "execute_time": "276",
+          "name": "",
+          "href": "https://www.apple.com/se/macbook-air/",
+          "id": "",
+          "text": "MacBook Air",
+          "tag": "A",
+          "class": "chapternav-link"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": null,
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "61",
+          "width": "70",
+          "y": "55",
+          "height": "74"
+        },
+        "id": "162272541697749",
+        "text": null,
+        "created-by": "Andreas",
+        "reported-data": null,
+        "status": "LOCATED"
+      },
+      {
+        "visibility": "VISIBLE",
+        "reported-text": null,
+        "weight": 36,
+        "meta-data": {
+          "matching_widget": "162272546151172",
+          "match_time": "2",
+          "match_score": "550",
+          "type": "",
+          "title": "",
+          "match_percent": "100",
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
+          "children": "1",
+          "execute_time": "72",
+          "name": "",
+          "href": "https://www.apple.com/se/mac/",
+          "id": "",
+          "text": "Mac",
+          "tag": "A",
+          "class": "ac-gn-link ac-gn-link-mac"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": null,
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "224",
+          "width": "46",
+          "y": "0",
+          "height": "44"
+        },
+        "id": "162272541342971",
+        "text": null,
+        "created-by": "Andreas",
+        "reported-data": null,
+        "status": "LOCATED"
+      },
+      {
+        "visibility": "VISIBLE",
+        "reported-text": null,
+        "weight": 20,
+        "meta-data": {
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+          "children": "1",
+          "execute_time": "226",
+          "name": "",
+          "href": "https://www.apple.com/se/",
+          "id": "ac-gn-firstfocus",
+          "text": "Apple",
+          "tag": "A",
+          "type": "",
+          "title": "",
+          "class": "ac-gn-link ac-gn-link-apple"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": null,
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "132",
+          "width": "36",
+          "y": "0",
+          "height": "44"
+        },
+        "id": "162272542394873",
+        "text": null,
+        "created-by": "Andreas",
+        "reported-data": null,
+        "status": "UNLOCATED"
+      },
+      {
+        "visibility": "VISIBLE",
+        "reported-text": null,
+        "weight": 20,
+        "meta-data": {
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
+          "children": "2",
+          "execute_time": "195",
+          "name": "",
+          "href": "https://www.apple.com/se/macbook-pro-13/",
+          "id": "",
+          "text": "MacBook Pro 13 tum",
+          "tag": "A",
+          "type": "",
+          "title": "",
+          "class": "chapternav-link"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": null,
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "167",
+          "width": "114",
+          "y": "55",
+          "height": "74"
+        },
+        "id": "162272543838154",
+        "text": null,
+        "created-by": "Andreas",
+        "reported-data": null,
+        "status": "UNLOCATED"
+      },
+      {
+        "visibility": "HIDDEN",
+        "reported-text": null,
+        "weight": 0,
+        "meta-data": {
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
+          "children": "2",
+          "execute_time": "276",
+          "name": "",
+          "href": "https://www.apple.com/se/macbook-air/",
+          "id": "",
+          "text": "MacBook Air",
+          "tag": "A",
+          "type": "",
+          "title": "",
+          "class": "chapternav-link"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": "SeleniumPlugin",
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "61",
+          "width": "70",
+          "y": "55",
+          "height": "74"
+        },
+        "id": "162272543957865",
+        "text": null,
+        "created-by": null,
+        "reported-data": null,
+        "status": "UNLOCATED"
+      },
+      {
+        "visibility": "HIDDEN",
+        "reported-text": null,
+        "weight": 0,
+        "meta-data": {
+          "contains": "1",
+          "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
+          "children": "1",
+          "execute_time": "72",
+          "name": "",
+          "href": "https://www.apple.com/se/mac/",
+          "id": "",
+          "text": "Mac",
+          "tag": "A",
+          "type": "",
+          "title": "",
+          "class": "ac-gn-link ac-gn-link-mac"
+        },
+        "reported-by": null,
+        "type": "ACTION",
+        "created-by-plugin": "SeleniumPlugin",
+        "subtype": "LEFT_CLICK_ACTION",
+        "comment": null,
+        "location": {
+          "x": "224",
+          "width": "46",
+          "y": "0",
+          "height": "44"
+        },
+        "id": "162272546151172",
+        "text": null,
+        "created-by": null,
+        "reported-data": null,
+        "status": "UNLOCATED"
+      }
+    ],
+    "state": {
+      "bookmarks": "Home",
+      "visible-widgets": [
+        {
+          "next-state": {
+            "bookmarks": null,
+            "visible-widgets": [
+              {
+                "next-state": {
+                  "bookmarks": null,
+                  "visible-widgets": [
+                    {
+                      "next-state": null,
+                      "id": "162272542394873"
+                    }
+                  ],
+                  "product-version": [
+                    "1"
+                  ],
+                  "id": "16227254189402"
+                },
+                "id": "162272541697749"
+              },
+              {
+                "next-state": {
+                  "bookmarks": null,
+                  "visible-widgets": [
+                    {
+                      "next-state": null,
+                      "id": "162272545281322"
+                    }
+                  ],
+                  "product-version": [
+                    "1"
+                  ],
+                  "id": "16227254404574"
+                },
+                "id": "162272543838154"
+              }
+            ],
+            "product-version": [
+              "1"
+            ],
+            "id": "16227254155681"
+          },
+          "id": "162272541342971"
+        }
+      ],
+      "product-version": [
+        "1"
+      ],
+      "id": "0"
+    },
+    "issues": []
+  }
+  
