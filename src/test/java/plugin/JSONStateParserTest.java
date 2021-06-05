@@ -17,6 +17,7 @@ import org.json.simple.parser.ParseException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import scout.AppState;
 import scout.Widget;
 
 public class JSONStateParserTest {
@@ -110,8 +111,29 @@ public class JSONStateParserTest {
     }
 
     @Test
-    public void testParseCompleteAppState() {
-        // TODO: Implement
+    public void testParseCompleteAppState() throws Exception {
+        String filePath = JSONStateParser.class.getClassLoader().getResource("scenario_20/state_initial.json").getPath(); 
+        JSONObject jsonState = loadJSONModel(filePath);
+
+        AppState result = JSONStateParser.parseCompleteAppState(jsonState);
+
+        assertNotNull(result);
+        assertEquals("0", result.getId());
+        assertEquals("Home", result.getBookmark());
+        assertEquals(1, result.getVisibleActions().size());
+        
+        Widget w1 = result.getVisibleActions().get(0);
+        assertEquals("162272541342971", w1.getId());
+        
+        AppState level2 = w1.getNextState();
+        assertNotNull(level2);
+        assertEquals(2, level2.getVisibleActions().size());
+        
+        Widget w2 = level2.getVisibleActions().get(0);
+        assertEquals("162272541697749", w2.getId());
+
+        Widget w3 = level2.getVisibleActions().get(1);
+        assertEquals("162272543838154", w3.getId());
     }
 
     @Test
