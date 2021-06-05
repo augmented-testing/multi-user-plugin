@@ -1,4 +1,4 @@
-# Multi-user Plugin for Scout
+<p align="center"><img src="banner.svg"></p>
 
 [![Plugins](https://github.com/augmented-testing/multi-user-plugin/actions/workflows/plugins.yml/badge.svg)](https://github.com/augmented-testing/multi-user-plugin/actions/workflows/plugins.yml)
 
@@ -43,5 +43,6 @@ This work (source code) is licensed under [MIT](./LICENSES/MIT.txt).
 Files other than source code are licensed as follows:
 
 - Documentation and screenshots are licensed under [CC BY-SA 4.0](./LICENSES/CC-BY-SA-4.0.txt).
+- Banner is based on graphics from diagrams.net and is licensed under [CC BY-SA 4.0](./LICENSES/CC-BY-SA-4.0.txt).
 
 See the [LICENSES](./LICENSES/) folder in the root of this project for license details.
