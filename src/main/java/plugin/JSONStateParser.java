@@ -108,12 +108,14 @@ public class JSONStateParser {
         json.put("type", widget.getWidgetType().name());
         json.put("subtype", widget.getWidgetSubtype().toString());
         json.put("status", widget.getWidgetStatus().toString());
+        json.put("created-date", widget.getCreatedDate().getTime());
+        json.put("resolved-data", widget.getResolvedDate().getTime());
         json.put("created-by",widget.getCreatedBy());
         json.put("created-by-plugin", widget.getCreatedByPlugin());
         json.put("comment", widget.getComment());
         json.put("reported-text", widget.getReportedText());
         json.put("reported-by", widget.getReportedBy());
-        json.put("reported-data", widget.getReportedDate());
+        json.put("reported-data", widget.getReportedDate().getTime());
         json.put("meta-data", metadataAsJSONObject(widget));
         json.put("visibility", widget.getWidgetVisibility().name());
         json.put("location", locationAreaAsJSONObject(widget.getLocationArea()));
