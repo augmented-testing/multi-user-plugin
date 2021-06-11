@@ -83,14 +83,14 @@ public class JSONStateParserTest {
         assertEquals(WidgetType.ACTION.name(), (String) result.get("type"));
         assertEquals(WidgetSubtype.LEFT_CLICK_ACTION.name(), (String) result.get("subtype"));
         assertEquals(WidgetStatus.LOCATED.name(), (String) result.get("status"));
-        assertEquals(1623332401000L, result.get("created-date"));
-        assertEquals(1623340200000L, result.get("resolved-data"));
+        assertEquals(1623332401000L, result.get("created-date-ms"));
+        assertEquals(1623340200000L, result.get("resolved-data-ms"));
         assertEquals("Mr. Tester", result.get("created-by"));
         assertEquals("Blockchain-5G-AI-plugin", result.get("created-by-plugin"));
         assertEquals("looks strange", result.get("comment"));
         assertEquals("Label is missing", result.get("reported-text"));
         assertEquals("Tester 5", result.get("reported-by"));
-        assertEquals(1623332467000L, result.get("reported-data"));
+        assertEquals(1623332467000L, result.get("reported-data-ms"));
         assertNotNull(result.get("meta-data"));
         assertEquals(WidgetVisibility.VISIBLE.name(), (String) result.get("visibility"));
         assertNotNull(result.get("location"));
