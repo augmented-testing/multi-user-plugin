@@ -13,11 +13,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import scout.AppState;
@@ -28,14 +26,6 @@ import scout.Widget.WidgetType;
 import scout.Widget.WidgetVisibility;
 
 public class JSONStateParserTest {
-   
-    private static JSONObject modelJSON;
-
-    @BeforeClass
-    public static void setup() throws Exception {
-        String filePath = JSONStateParser.class.getClassLoader().getResource("scenario_10/state.json").getPath();
-        modelJSON = loadJSONModel(filePath);
-    }
 
     @Test
     public void testAppStateAsJSONObject() {
@@ -84,13 +74,13 @@ public class JSONStateParserTest {
         assertEquals(WidgetSubtype.LEFT_CLICK_ACTION.name(), (String) result.get("subtype"));
         assertEquals(WidgetStatus.LOCATED.name(), (String) result.get("status"));
         assertEquals(1623332401000L, result.get("created-date-ms"));
-        assertEquals(1623340200000L, result.get("resolved-data-ms"));
+        assertEquals(1623340200000L, result.get("resolved-date-ms"));
         assertEquals("Mr. Tester", result.get("created-by"));
         assertEquals("Blockchain-5G-AI-plugin", result.get("created-by-plugin"));
         assertEquals("looks strange", result.get("comment"));
         assertEquals("Label is missing", result.get("reported-text"));
         assertEquals("Tester 5", result.get("reported-by"));
-        assertEquals(1623332467000L, result.get("reported-data-ms"));
+        assertEquals(1623332467000L, result.get("reported-date-ms"));
         assertNotNull(result.get("meta-data"));
         assertEquals(WidgetVisibility.VISIBLE.name(), (String) result.get("visibility"));
         assertNotNull(result.get("location"));
@@ -188,14 +178,34 @@ public class JSONStateParserTest {
     }
 
     @Test
-    public void testParseWidget() {
-        JSONArray allWidgetsJSON = (JSONArray)modelJSON.get("all-widgets");
-        JSONObject firstWidget = (JSONObject)allWidgetsJSON.iterator().next();
-
-        Widget result = JSONStateParser.parseWidget(firstWidget);
+    public void testParseWidget() throws Exception {
+        String filePath = JSONStateParser.class.getClassLoader().getResource("widget.json").getPath(); 
+        JSONObject jsonWidget = loadJSONModel(filePath);
+        
+        Widget result = JSONStateParser.parseWidget(jsonWidget);
 
         assertNotNull(result);
-        assertEquals("162124546053328", result.getId());
+        assertEquals("100100100", result.getId());
+        assertEquals("very nice widget", result.getText());
+        assertEquals(0.5, result.getWeight(), 0.0001);
+        assertEquals(WidgetType.ACTION, result.getWidgetType());
+        assertEquals(WidgetSubtype.LEFT_CLICK_ACTION, result.getWidgetSubtype());
+        assertEquals(WidgetStatus.LOCATED, result.getWidgetStatus());
+        
+        assertEquals(1623332401000L, result.getCreatedDate().getTime());
+        assertEquals(1623340200000L, result.getResolvedDate().getTime());
+        assertEquals(1623332467000L, result.getReportedDate().getTime());
+        
+        assertEquals("Mr. Tester", result.getCreatedBy());
+        assertEquals("Blockchain-5G-AI-plugin", result.getCreatedByPlugin());
+        assertEquals("looks strange", result.getComment());
+        assertEquals("Label is missing", result.getReportedText());
+        assertEquals("Tester 5", result.getReportedBy());
+
+        assertEquals(WidgetVisibility.VISIBLE, result.getWidgetVisibility());
+        assertEquals(new Rectangle(970,117,14,36), result.getLocationArea()); 
+        
+        assertEquals("div", result.getMetadata("class"));
     }
 
     private static JSONObject loadJSONModel(String filepath) throws FileNotFoundException, IOException, ParseException{

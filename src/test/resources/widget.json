@@ -1,0 +1,19 @@
+{
+  "visibility": "VISIBLE",
+  "reported-text": "Label is missing",
+  "reported-date-ms": 1623332467000,
+  "weight": 0.5,
+  "meta-data": { "class": "div" },
+  "reported-by": "Tester 5",
+  "type": "ACTION",
+  "created-date-ms": 1623332401000,
+  "created-by-plugin": "Blockchain-5G-AI-plugin",
+  "subtype": "LEFT_CLICK_ACTION",
+  "resolved-date-ms": 1623340200000,
+  "comment": "looks strange",
+  "location": { "x": "970", "width": "14", "y": "117", "height": "36" },
+  "id": "100100100",
+  "text": "very nice widget",
+  "created-by": "Mr. Tester",
+  "status": "LOCATED"
+}

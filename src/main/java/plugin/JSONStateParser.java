@@ -5,6 +5,7 @@
 package plugin;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,6 +20,7 @@ import scout.AppState;
 import scout.Path;
 import scout.StateController;
 import scout.Widget;
+import scout.Widget.WidgetStatus;
 import scout.Widget.WidgetSubtype;
 import scout.Widget.WidgetType;
 import scout.Widget.WidgetVisibility;
@@ -109,13 +111,13 @@ public class JSONStateParser {
         json.put("subtype", widget.getWidgetSubtype().toString());
         json.put("status", widget.getWidgetStatus().toString());
         json.put("created-date-ms", widget.getCreatedDate().getTime());
-        json.put("resolved-data-ms", widget.getResolvedDate().getTime());
+        json.put("resolved-date-ms", widget.getResolvedDate().getTime());
+        json.put("reported-date-ms", widget.getReportedDate().getTime());
         json.put("created-by",widget.getCreatedBy());
         json.put("created-by-plugin", widget.getCreatedByPlugin());
         json.put("comment", widget.getComment());
         json.put("reported-text", widget.getReportedText());
         json.put("reported-by", widget.getReportedBy());
-        json.put("reported-data-ms", widget.getReportedDate().getTime());
         json.put("meta-data", metadataAsJSONObject(widget));
         json.put("visibility", widget.getWidgetVisibility().name());
         json.put("location", locationAreaAsJSONObject(widget.getLocationArea()));
@@ -249,6 +251,16 @@ public class JSONStateParser {
         widget.setComment((String)jsonWidget.get("comment"));
         widget.setWidgetVisibility(WidgetVisibility.valueOf((String)jsonWidget.get("visibility")));
         
+        WidgetStatus status = WidgetStatus.valueOf((String) jsonWidget.get("status"));
+        widget.setWidgetStatus(status);
+
+        Date created = parseDate(jsonWidget.get("created-date-ms"));
+        widget.setCreatedDate(created);
+        Date resolved = parseDate(jsonWidget.get("resolved-date-ms"));
+        widget.setResolvedDate(resolved);
+        Date reported = parseDate(jsonWidget.get("reported-date-ms"));
+        widget.setReportedDate(reported);
+
         String weightStr = String.valueOf(jsonWidget.get("weight"));
         Double weight = Double.parseDouble(weightStr);
         widget.setWeight(weight);
@@ -259,13 +271,16 @@ public class JSONStateParser {
         String subType = (String)jsonWidget.get("subtype");
         widget.setWidgetSubtype(WidgetSubtype.valueOf(subType));
 
+        widget.setReportedText((String)jsonWidget.get("reported-text"));
+        widget.setReportedBy((String)jsonWidget.get("reported-by"));
+
         JSONObject locRec = (JSONObject)jsonWidget.get("location");
         if (locRec != null) {
             int locX = Integer.parseInt((String)locRec.get("x"));
             int locY = Integer.parseInt((String)locRec.get("y"));
             int locWidth = Integer.parseInt((String)locRec.get("width"));
             int locHeight = Integer.parseInt((String)locRec.get("height"));
-            widget.setLocationArea(new java.awt.Rectangle(locX, locY, locHeight, locWidth));
+            widget.setLocationArea(new java.awt.Rectangle(locX, locY, locWidth, locHeight));
         }
 
         JSONObject jsonMetadata = (JSONObject)jsonWidget.get("meta-data");
@@ -280,5 +295,13 @@ public class JSONStateParser {
         widget.putMetadata("class", (String)jsonMetadata.get("class"));
 
         return widget;
+    }
+
+    protected static Date parseDate(Object jsonMilliseconds) {
+        try {
+            return new Date((long) jsonMilliseconds);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
