@@ -3,15 +3,20 @@ package plugin;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static plugin.JSONStateParser.locationAreaAsJSONObject;
 import static plugin.JSONStateParser.metadataAsJSONObject;
 import static plugin.JSONStateParser.widgetAsJSONObject;
+import static plugin.JSONStateParser.stateWidgetAsSimpleJSONObject;
 
 import java.awt.Rectangle;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -143,7 +148,27 @@ public class JSONStateParserTest {
 
     @Test
     public void testStateWidgetAsSimpleJSONObject() {
-        // TODO: Implement
+        Widget widget = new Widget();
+        widget.setId("4839");
+        AppState nextState = new AppState("100", "next state");
+        nextState.addProductVersion("1.0");
+        widget.setNextState(nextState);
+        
+        Map<String,Widget> allUsedWidgets = new HashMap<>();
+        JSONObject result = stateWidgetAsSimpleJSONObject(widget, allUsedWidgets);
+        
+        assertNotNull(result);
+        assertTrue(allUsedWidgets.isEmpty());
+        assertEquals(2, result.entrySet().size());
+
+        assertEquals("4839", result.get("id"));
+        assertNotNull(result.get("next-state"));
+        
+        JSONObject jsonNextState = (JSONObject)result.get("next-state");
+        assertEquals("100", jsonNextState.get("id"));
+        List<String> productVersions = (List<String>)jsonNextState.get("product-version"); 
+        assertEquals("1.0", productVersions.get(0));
+        assertEquals("next state", jsonNextState.get("bookmarks"));  
     }
 
     @Test
