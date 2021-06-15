@@ -295,6 +295,16 @@ public class MultiUserTest extends MultiUser {
         assertNull(result.getNextState());
     }
 
+    @Test
+    public void testDeepCopy() throws IOException, ClassNotFoundException, ParseException {
+        Widget original = createWidget("1");
+        
+        Widget deepCopy = deepCopy(original);
+
+        assertNotNull(deepCopy);
+        assertEquals(0, original.compareTo(deepCopy));
+    } 
+
     private Widget createWidget(String id) {
         Widget widget = new Widget();
         widget.setId(id);
