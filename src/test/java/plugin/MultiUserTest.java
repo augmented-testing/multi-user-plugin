@@ -15,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -303,6 +305,40 @@ public class MultiUserTest extends MultiUser {
 
         assertNotNull(deepCopy);
         assertEquals(0, original.compareTo(deepCopy));
+    }
+
+    @Test
+    public void testGetAllVisibleActionsRecursive() {
+        Widget w1 = createWidget("1");
+        Widget w2 = createWidget("2");
+        Widget w3 = createWidget("3");
+        Widget w4 = createWidget("4");
+        
+        AppState s1 = new AppState("S1");
+        AppState s2 = new AppState("S2");
+        AppState s3 = new AppState("S3");
+        
+        w1.setNextState(s1);
+        s1.addWidget(w2);
+        w2.setNextState(s2);
+        s2.addWidget(w3);
+        w3.setNextState(s3);
+        s3.addWidget(w4);
+
+        List<Widget> result = getAllVisibleActionsRecursive(w1);
+
+        assertEquals(3, result.size());
+        assertTrue(result.contains(w2));
+        assertTrue(result.contains(w3));
+        assertTrue(result.contains(w4));         
+    }
+
+    @Test
+    public void testGetAllVisibleActionsRecursive_Null() {
+        List<Widget> result = getAllVisibleActionsRecursive(null);
+
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
     } 
 
     private Widget createWidget(String id) {

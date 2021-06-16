@@ -23,7 +23,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -308,6 +307,34 @@ public class MultiUser {
 
         result.setNextState(null);
         return result;
+    }
+
+    protected List<Widget> getAllVisibleActionsRecursive(Widget widget) {
+        List<Widget> allWidgets = new LinkedList<>();
+
+        if (widget == null || widget.getNextState() == null) {
+            return allWidgets;
+        }
+
+        AppState nextState = widget.getNextState();
+        List<Widget> widgets = nextState.getVisibleActions();
+        allWidgets.addAll(widgets);
+
+        for (Widget item : widgets) {
+            allWidgets.addAll(getAllVisibleActionsRecursive(item));
+        }
+
+        return allWidgets;
+    }
+
+    protected int indexOfSameWidget(Widget widget, List<Widget> list ) {
+       for (int i = 0; i < list.size(); i++) {
+            if (isSameWidget(widget, list.get(i))) {
+                return i;
+            }   
+       }
+        
+        return -1;
     }
 
     protected boolean hasEqualMetaData(String key, Widget widget, Widget other) {
