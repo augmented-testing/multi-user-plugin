@@ -46,6 +46,12 @@ public class MultiUser {
     private static final String MODEL_FILENAME = "state.json";
     private static final String PRODUCT_PROPERTIES_FILE = "product.properties";
 
+    protected static final String META_DATA_DIFF = "multi-user-diff-widgets";
+
+    protected enum DiffType {
+        CREATED, DELETED, CHANGED, NO_CHANGES
+    }
+
     public MultiUser() {
         StateController.setProducts(getFolders(DATA_FILEPATH));
     }
@@ -307,6 +313,58 @@ public class MultiUser {
 
         result.setNextState(null);
         return result;
+    }
+
+    /**
+     * Add annotations as meta-data to track the changes of 
+     * widgets in each state after a session.
+     * These annotations support the merging process with the shared state model.
+     * @param before app state from session start
+     * @param after changed app state that shall be annotated
+     */
+    protected void annotateDiffsInStates(AppState before, AppState after) {        
+        if (before == null && after == null) {
+            return;
+        }
+        
+        List<Widget> beforeWidgets = new LinkedList<>();
+        List<Widget> afterWidgets = new LinkedList<>();
+
+        if (before != null) {
+            beforeWidgets = new LinkedList<>(before.getVisibleActions()); 
+        }
+
+        if (after != null) {
+            afterWidgets = new LinkedList<>(after.getVisibleActions());
+        }
+
+        Map<String, String> widgetDiff = new HashMap<>();
+
+        for (Widget afterWidget : afterWidgets) {                
+            int foundIndex = indexOfSameWidget(afterWidget, beforeWidgets);
+            if (foundIndex >= 0) {
+                widgetDiff.put(afterWidget.getId(), DiffType.NO_CHANGES.toString());
+                
+                AppState nextStateFromWidgetBefore = beforeWidgets.get(foundIndex).getNextState();
+                annotateDiffsInStates(nextStateFromWidgetBefore, afterWidget.getNextState());
+                
+                beforeWidgets.remove(foundIndex);
+                continue;
+            }
+
+            widgetDiff.put(afterWidget.getId(), DiffType.CREATED.toString());
+            annotateDiffsInStates(null, afterWidget.getNextState());
+            
+        }
+
+        for (Widget beforeWidget : beforeWidgets) {
+            widgetDiff.put(beforeWidget.getId(), DiffType.DELETED.toString());
+
+            List<Widget> leafWidgets = getAllVisibleActionsRecursive(beforeWidget);
+            leafWidgets.forEach(w -> widgetDiff.put(w.getId(), DiffType.DELETED.toString()));
+        }
+        
+        after.putMetadata(META_DATA_DIFF, widgetDiff);
     }
 
     protected List<Widget> getAllVisibleActionsRecursive(Widget widget) {
