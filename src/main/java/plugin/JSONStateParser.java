@@ -79,6 +79,15 @@ public class JSONStateParser {
         
         visibleWidgets.forEach(w -> allUsedWidgets.put(w.getId(), w));
 
+        JSONObject jsonMetaData = new JSONObject();
+        state.getMetadataKeys().stream()
+        .filter(k -> k != "multi-user-diff-widgets")
+        .forEach(k -> jsonMetaData.put(k, String.valueOf(state.getMetadata(k))));	
+
+        jsonMetaData.put("multi-user-diff-widgets", state.getMetadata("multi-user-diff-widgets"));
+
+        json.put("meta-data", jsonMetaData);
+
         return json;
     }
     
