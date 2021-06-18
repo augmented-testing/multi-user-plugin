@@ -236,7 +236,7 @@ public class MultiUser {
             && isSameClass;
     }
 
-    protected AppState mergeAppState(AppState state, AppState other) {
+    protected AppState mergeInitialAppStates(AppState state, AppState other) {
         if (state == null && other == null) {
             throw new IllegalArgumentException("Expected AppState arguments to be not null at the same time");
         }
@@ -279,7 +279,7 @@ public class MultiUser {
             Widget merged = mergeSameWidgets(widget, otherWidget);
 
             if (widget.getNextState() != null || otherWidget.getNextState() != null) {
-                AppState nextState = mergeAppState(widget.getNextState(), otherWidget.getNextState());
+                AppState nextState = mergeInitialAppStates(widget.getNextState(), otherWidget.getNextState());
                 merged.setNextState(nextState);
             }
 

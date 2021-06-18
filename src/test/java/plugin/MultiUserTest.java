@@ -237,7 +237,7 @@ public class MultiUserTest extends MultiUser {
     }
 
     @Test
-    public void testMergeAppState_OneNullArg() {
+    public void testMergeInitialAppStates_OneNullArg() {
         AppState firsState = new AppState("10","Home");
         firsState.addWidget(createWidget("1"));
         Widget w2 = createWidget("2");
@@ -245,12 +245,12 @@ public class MultiUserTest extends MultiUser {
         w2.putMetadata("xpath", "/html[1]/body[1]/div[1]");
         firsState.addWidget(w2); 
 
-        AppState result = mergeAppState(firsState, null);
+        AppState result = mergeInitialAppStates(firsState, null);
 
         assertNotNull(result);
         assertEquals(firsState, result);
         
-        result = mergeAppState(null, firsState);
+        result = mergeInitialAppStates(null, firsState);
         
         assertNotNull(result);
         assertEquals(firsState, result);
@@ -258,8 +258,8 @@ public class MultiUserTest extends MultiUser {
     }
     
     @Test(expected = IllegalArgumentException.class)
-    public void testMergeAppState_Null () {
-        mergeAppState(null, null);
+    public void testMergeInitialAppStates_Null () {
+        mergeInitialAppStates(null, null);
     }
 
     @Test
