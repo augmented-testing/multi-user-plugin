@@ -136,7 +136,7 @@ public class MultiUserTest extends MultiUser {
         w4.putMetadata("xpath", "/html[1]/body[1]/div[1]/div[1]/div[1]");
         secondState.addWidget(w4);
 
-        AppState result = mergeAppState(firsState, secondState);
+        AppState result = mergeInitialAppStates(firsState, secondState);
 
         assertNotNull(result);
         assertEquals(3, result.getVisibleActions().size());
@@ -171,7 +171,7 @@ public class MultiUserTest extends MultiUser {
         String filePathOther = JSONStateParser.class.getClassLoader().getResource("scenario_10/state_other.json").getPath();
         AppState other = loadJSONModel(filePathOther);
 
-        AppState result = mergeAppState(state, other);
+        AppState result = mergeInitialAppStates(state, other);
 
         assertNotNull(result);
         assertEquals("0", result.getId());
@@ -298,7 +298,7 @@ public class MultiUserTest extends MultiUser {
     }
 
     @Test
-    public void testDeepCopy() throws IOException, ClassNotFoundException, ParseException {
+    public void testDeepCopy() {
         Widget original = createWidget("1");
         
         Widget deepCopy = deepCopy(original);

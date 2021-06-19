@@ -405,13 +405,18 @@ public class MultiUser {
     }
 
     @SuppressWarnings("unchecked")
-    protected <T extends Serializable> T deepCopy(T original) throws IOException, ClassNotFoundException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream out = new ObjectOutputStream(bos);
-        out.writeObject(original);
-
-        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-        ObjectInputStream in = new ObjectInputStream(bis);
-        return (T) in.readObject();
+    protected <T extends Serializable> T deepCopy(T original) {
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream out = new ObjectOutputStream(bos);
+            out.writeObject(original);
+            
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            ObjectInputStream in = new ObjectInputStream(bis);
+            return (T) in.readObject();
+        } catch (Exception e) {
+            log("Unable to create a deep copy of an object: " + e.getMessage());
+            return null;
+        }
     }
 }
