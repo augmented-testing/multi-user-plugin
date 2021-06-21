@@ -119,9 +119,17 @@ public class JSONStateParser {
         json.put("type", widget.getWidgetType().name());
         json.put("subtype", widget.getWidgetSubtype().toString());
         json.put("status", widget.getWidgetStatus().toString());
-        json.put("created-date-ms", widget.getCreatedDate().getTime());
-        json.put("resolved-date-ms", widget.getResolvedDate().getTime());
-        json.put("reported-date-ms", widget.getReportedDate().getTime());
+        
+        if (widget.getCreatedDate() != null) {
+            json.put("created-date-ms",  widget.getCreatedDate().getTime());
+        }
+        if (widget.getResolvedDate() != null) {
+            json.put("resolved-date-ms", widget.getResolvedDate().getTime());
+        }
+        if (widget.getReportedDate() != null) {
+            json.put("reported-date-ms", widget.getReportedDate().getTime());
+        }
+
         json.put("created-by",widget.getCreatedBy());
         json.put("created-by-plugin", widget.getCreatedByPlugin());
         json.put("comment", widget.getComment());
