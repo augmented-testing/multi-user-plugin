@@ -14,7 +14,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -327,42 +326,36 @@ public class MultiUser {
             return;
         }
         
-        List<Widget> beforeWidgets = new LinkedList<>();
+        List<Widget> remainingBeforeWidgets = new LinkedList<>();
         List<Widget> afterWidgets = new LinkedList<>();
 
         if (before != null) {
-            beforeWidgets = new LinkedList<>(before.getVisibleActions()); 
+            remainingBeforeWidgets = new LinkedList<>(before.getVisibleActions()); 
         }
 
         if (after != null) {
             afterWidgets = new LinkedList<>(after.getVisibleActions());
         }
 
-        Map<String, String> widgetDiff = new HashMap<>();
+        Map<String, DiffType> widgetDiff = new HashMap<>();
 
         for (Widget afterWidget : afterWidgets) {                
-            int foundIndex = indexOfSameWidget(afterWidget, beforeWidgets);
-            if (foundIndex >= 0) {
-                widgetDiff.put(afterWidget.getId(), DiffType.NO_CHANGES.toString());
-                
-                AppState nextStateFromWidgetBefore = beforeWidgets.get(foundIndex).getNextState();
-                annotateDiffsInStates(nextStateFromWidgetBefore, afterWidget.getNextState());
-                
-                beforeWidgets.remove(foundIndex);
-                continue;
+            int foundIndex = indexOfSameWidget(afterWidget, remainingBeforeWidgets);
+            boolean isPresent = foundIndex >= 0;
+
+            DiffType diffType = DiffType.CREATED;
+            AppState nextStateFromWidgetBefore = null;
+            if (isPresent) {
+                diffType = DiffType.NO_CHANGES;
+                nextStateFromWidgetBefore = remainingBeforeWidgets.get(foundIndex).getNextState();
+                remainingBeforeWidgets.remove(foundIndex); 
             }
-
-            widgetDiff.put(afterWidget.getId(), DiffType.CREATED.toString());
-            annotateDiffsInStates(null, afterWidget.getNextState());
             
+            widgetDiff.put(afterWidget.getId(), diffType);
+            annotateDiffsInStates(nextStateFromWidgetBefore, afterWidget.getNextState());
         }
 
-        for (Widget beforeWidget : beforeWidgets) {
-            widgetDiff.put(beforeWidget.getId(), DiffType.DELETED.toString());
-
-            List<Widget> leafWidgets = getAllVisibleActionsRecursive(beforeWidget);
-            leafWidgets.forEach(w -> widgetDiff.put(w.getId(), DiffType.DELETED.toString()));
-        }
+        remainingBeforeWidgets.forEach(deletedWidget -> widgetDiff.put(deletedWidget.getId(), DiffType.DELETED));
         
         after.putMetadata(META_DATA_DIFF, widgetDiff);
     }

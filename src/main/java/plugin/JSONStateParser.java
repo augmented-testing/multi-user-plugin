@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import plugin.MultiUser.DiffType;
 import scout.AppState;
 import scout.Path;
 import scout.StateController;
@@ -84,7 +85,12 @@ public class JSONStateParser {
         .filter(k -> k != "multi-user-diff-widgets")
         .forEach(k -> jsonMetaData.put(k, String.valueOf(state.getMetadata(k))));	
 
-        jsonMetaData.put("multi-user-diff-widgets", state.getMetadata("multi-user-diff-widgets"));
+        Map<String, DiffType> diff = (Map<String, DiffType>)state.getMetadata("multi-user-diff-widgets");
+        if (diff != null) {
+            Map<String, String> diffStr = new HashMap<>();
+            diff.entrySet().forEach(e -> diffStr.put(e.getKey(), e.getValue().toString()));
+            jsonMetaData.put("multi-user-diff-widgets", diffStr);
+        }
 
         json.put("meta-data", jsonMetaData);
 
