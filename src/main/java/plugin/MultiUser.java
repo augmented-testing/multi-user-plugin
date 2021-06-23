@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -46,6 +47,7 @@ public class MultiUser {
     private static final String PRODUCT_PROPERTIES_FILE = "product.properties";
 
     protected static final String META_DATA_DIFF = "multi-user-diff-widgets";
+    protected static final String DELETED_AT = "multi-user-merge-deleted-at";
 
     protected enum DiffType {
         CREATED, DELETED, CHANGED, NO_CHANGES
@@ -390,6 +392,14 @@ public class MultiUser {
 
     protected boolean hasEqualMetaData(String key, Widget widget, Widget other) {
         return String.valueOf(widget.getMetadata(key)).equals(String.valueOf(other.getMetadata(key)));
+    }
+
+    protected void markAsDeleted(Widget widget) {
+        if (widget == null) {
+            return;
+        }
+
+        widget.putMetadata(DELETED_AT, Instant.now().toEpochMilli());
     }
 
     private void log(String message) {
