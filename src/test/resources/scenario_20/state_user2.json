@@ -4,18 +4,15 @@
     {
       "product-version": "1",
       "tester": "Andreas",
-      "created-at": "Fri Jun 04 10:49:22 CEST 2021",
-      "id": "16227965623370",
+      "created-at": "Thu Jun 24 11:24:32 CEST 2021",
+      "id": "162452667255310",
       "widgets": [
-        "162272541342971",
-        "162279667386044",
-        "162279668654136",
-        "162272541342971",
-        "162272541697749",
-        "16227967121003",
-        "162279671741215"
+        "btnToMac",
+        "btnToDisplay",
+        "btnToDisplayTechInfo",
+        "162452674674776"
       ],
-      "session-duration": 161917,
+      "session-duration": 88409,
       "session-id": null
     }
   ],
@@ -23,235 +20,14 @@
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "44", "y": "0", "height": "36" },
-      "id": "162272545281322",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "children": "1",
-        "execute_time": "115",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "162279668654136",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 34.44,
-      "meta-data": {
-        "matching_widget": "16227967009014",
-        "match_time": "12",
-        "match_score": "550",
-        "type": "",
-        "title": "",
-        "match_percent": "100",
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "corrections": "[scout.Correction@37a827fa]",
-        "children": "1",
-        "execute_time": "148",
-        "name": "",
-        "text": "Apple",
-        "id": "ac-gn-firstfocus",
-        "href": "https://www.apple.com/se/",
-        "tag": "A",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "162272541697749",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "LOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 59.04,
-      "meta-data": {
-        "match_time": "1",
-        "match_score": "0",
-        "type": "",
-        "title": "",
-        "match_percent": "0",
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
-        "children": "1",
-        "execute_time": "81",
-        "name": "",
-        "href": "https://www.apple.com/se/mac/",
-        "id": "",
-        "text": "Mac",
-        "tag": "A",
-        "class": "ac-gn-link ac-gn-link-mac"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "224", "width": "46", "y": "0", "height": "44" },
-      "id": "162272541342971",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "children": "1",
-        "execute_time": "192",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "162279671741215",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 19.0,
-      "meta-data": {
-        "matching_widget": "16227967009018",
-        "match_time": "17",
-        "match_score": "550",
-        "type": "",
-        "title": "",
-        "match_percent": "100",
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
-        "children": "2",
-        "execute_time": "148",
-        "name": "",
-        "href": "https://www.apple.com/se/pro-display-xdr/",
-        "id": "",
-        "text": "Pro Display XDR",
-        "tag": "A",
-        "class": "chapternav-link"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "953", "width": "90", "y": "55", "height": "74" },
-      "id": "162279667386044",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "LOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 19.0,
-      "meta-data": {
-        "matching_widget": "162279671210042",
-        "match_time": "1",
-        "match_score": "620",
-        "type": "",
-        "title": "",
-        "match_percent": "95",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "execute_time": "222",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "162272542394873",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
+      "weight": 20,
       "meta-data": {
         "contains": "0",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/a[1]",
         "children": "0",
-        "execute_time": "222",
+        "execute_time": "155",
         "name": "",
-        "href": "https://www.apple.com/se/macbook-air/specs/",
+        "href": "https://www.apple.com/se/pro-display-xdr/specs/",
         "id": "",
         "text": "Teknisk info",
         "tag": "A",
@@ -261,119 +37,59 @@
       },
       "reported-by": null,
       "type": "ACTION",
+      "created-date-ms": 1624526731768,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "987", "width": "65", "y": "59", "height": "22" },
-      "id": "16227967121003",
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToDisplayTechInfo",
       "text": null,
       "created-by": "Andreas",
-      "reported-data": null,
       "status": "UNLOCATED"
     },
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 18.05,
+      "weight": 20,
       "meta-data": {
-        "matching_widget": "162279670090116",
-        "match_time": "16",
-        "match_score": "550",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
+        "name": "",
+        "href": "https://www.apple.com/se/macbook-pro-13/specs/",
+        "id": "",
+        "text": "Teknisk info",
+        "tag": "A",
         "type": "",
         "title": "",
-        "match_percent": "100",
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
-        "children": "2",
-        "execute_time": "148",
-        "name": "",
-        "href": "https://www.apple.com/se/macbook-pro-13/",
-        "id": "",
-        "text": "MacBook Pro 13 tum",
-        "tag": "A",
-        "class": "chapternav-link"
+        "class": "ac-ln-menu-link"
       },
       "reported-by": null,
       "type": "ACTION",
+      "created-date-ms": 1624526078522,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "167", "width": "114", "y": "55", "height": "74" },
-      "id": "162272543838154",
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToPro13TechInfo",
       "text": null,
       "created-by": "Andreas",
-      "reported-data": null,
-      "status": "LOCATED"
-    },
-    {
-      "visibility": "HIDDEN",
-      "reported-text": null,
-      "weight": 0.0,
-      "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
-        "children": "2",
-        "execute_time": "148",
-        "name": "",
-        "href": "https://www.apple.com/se/macbook-air/",
-        "id": "",
-        "text": "MacBook Air",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "chapternav-link"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": "SeleniumPlugin",
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "61", "width": "70", "y": "55", "height": "74" },
-      "id": "16227967009014",
-      "text": null,
-      "created-by": null,
-      "reported-data": null,
       "status": "UNLOCATED"
     },
     {
-      "visibility": "HIDDEN",
+      "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 0.0,
+      "weight": 20,
       "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
-        "children": "2",
-        "execute_time": "148",
-        "name": "",
-        "href": "https://www.apple.com/se/pro-display-xdr/",
-        "id": "",
-        "text": "Pro Display XDR",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "chapternav-link"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": "SeleniumPlugin",
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "953", "width": "90", "y": "55", "height": "74" },
-      "id": "16227967009018",
-      "text": null,
-      "created-by": null,
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "HIDDEN",
-      "reported-text": null,
-      "weight": 0.0,
-      "meta-data": {
-        "contains": "1",
         "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "children": "1",
-        "execute_time": "222",
         "name": "",
         "href": "https://www.apple.com/se/",
         "id": "ac-gn-firstfocus",
@@ -385,25 +101,208 @@
       },
       "reported-by": null,
       "type": "ACTION",
-      "created-by-plugin": "SeleniumPlugin",
+      "created-date-ms": 1624526097197,
+      "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "162279671210042",
+      "location": {
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452609500972",
       "text": null,
-      "created-by": null,
-      "reported-data": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 67.232,
+      "meta-data": {
+        "matching_widget": "162452676041464",
+        "match_time": "1",
+        "match_score": "550",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
+        "execute_time": "92",
+        "name": "",
+        "href": "https://www.apple.com/se/mac/",
+        "id": "",
+        "text": "Mac",
+        "tag": "A",
+        "class": "ac-gn-link ac-gn-link-mac"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624521414062,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "224",
+        "width": "46",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "btnToMac",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
+        "children": "2",
+        "execute_time": "144",
+        "name": "",
+        "href": "https://www.apple.com/se/pro-display-xdr/",
+        "id": "",
+        "text": "Pro Display XDR",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526715870,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "953",
+        "width": "90",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "btnToDisplay",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 33.440000000000005,
+      "meta-data": {
+        "matching_widget": "162452671483896",
+        "match_time": "2",
+        "match_score": "550",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
+        "execute_time": "287",
+        "name": "",
+        "href": "https://www.apple.com/se/macbook-pro-13/",
+        "id": "",
+        "text": "MacBook Pro 13 tum",
+        "tag": "A",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624521466620,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "167",
+        "width": "114",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "btnToPro13",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+        "children": "1",
+        "execute_time": "194",
+        "name": "",
+        "href": "https://www.apple.com/se/",
+        "id": "ac-gn-firstfocus",
+        "text": "Apple",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-gn-link ac-gn-link-apple"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526747900,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452674674776",
+      "text": null,
+      "created-by": "Andreas",
       "status": "UNLOCATED"
     },
     {
       "visibility": "HIDDEN",
       "reported-text": null,
-      "weight": 0.0,
+      "weight": 0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
+        "children": "1",
+        "execute_time": "92",
+        "name": "",
+        "href": "https://www.apple.com/se/mac/",
+        "id": "",
+        "text": "Mac",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-gn-link ac-gn-link-mac"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "224",
+        "width": "46",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452676041464",
+      "text": null,
+      "created-by": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0,
       "meta-data": {
         "contains": "1",
         "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
         "children": "2",
-        "execute_time": "148",
+        "execute_time": "287",
         "name": "",
         "href": "https://www.apple.com/se/macbook-pro-13/",
         "id": "",
@@ -418,11 +317,15 @@
       "created-by-plugin": "SeleniumPlugin",
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "167", "width": "114", "y": "55", "height": "74" },
-      "id": "162279670090116",
+      "location": {
+        "x": "167",
+        "width": "114",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "162452671483896",
       "text": null,
       "created-by": null,
-      "reported-data": null,
       "status": "UNLOCATED"
     }
   ],
@@ -431,60 +334,95 @@
     "visible-widgets": [
       {
         "next-state": {
-          "bookmarks": null,
+          "bookmarks": "Mac",
           "visible-widgets": [
             {
               "next-state": {
-                "bookmarks": null,
+                "bookmarks": "MacBook Pro 13",
                 "visible-widgets": [
-                  { "next-state": null, "id": "162272542394873" },
                   {
                     "next-state": {
-                      "bookmarks": null,
+                      "bookmarks": "MacBook Pro 13 technical info",
                       "visible-widgets": [
-                        { "next-state": null, "id": "162279671741215" }
+                        {
+                          "next-state": null,
+                          "id": "162452609500972"
+                        }
                       ],
-                      "product-version": ["1"],
-                      "id": "16227967129573"
+                      "product-version": [],
+                      "meta-data": {},
+                      "id": "16245260785223"
                     },
-                    "id": "16227967121003"
+                    "id": "btnToPro13TechInfo"
                   }
                 ],
-                "product-version": ["1"],
-                "id": "16227254189402"
-              },
-              "id": "162272541697749"
-            },
-            {
-              "next-state": {
-                "bookmarks": null,
-                "visible-widgets": [
-                  { "next-state": null, "id": "162272545281322" }
-                ],
                 "product-version": [],
-                "id": "16227254404574"
+                "meta-data": {},
+                "id": "16245214666204"
               },
-              "id": "162272543838154"
+              "id": "btnToPro13"
             },
             {
               "next-state": {
-                "bookmarks": null,
+                "bookmarks": "Display XDR",
                 "visible-widgets": [
-                  { "next-state": null, "id": "162279668654136" }
+                  {
+                    "next-state": {
+                      "bookmarks": "Display XDR technical info",
+                      "visible-widgets": [
+                        {
+                          "next-state": null,
+                          "id": "162452674674776"
+                        }
+                      ],
+                      "product-version": [
+                        "1"
+                      ],
+                      "meta-data": {
+                        "page_content": "85298",
+                        "no_clones": "1",
+                        "no_widgets": "0"
+                      },
+                      "id": "162452673176812"
+                    },
+                    "id": "btnToDisplayTechInfo"
+                  }
                 ],
-                "product-version": ["1"],
-                "id": "16227966748081"
+                "product-version": [
+                  "1"
+                ],
+                "meta-data": {
+                  "page_content": "77205",
+                  "no_clones": "1",
+                  "no_widgets": "0"
+                },
+                "id": "162452671587011"
               },
-              "id": "162279667386044"
+              "id": "btnToDisplay"
             }
           ],
-          "product-version": ["1"],
-          "id": "16227254155681"
+          "product-version": [
+            "1"
+          ],
+          "meta-data": {
+            "page_content": "153337",
+            "no_clones": "1",
+            "no_widgets": "2"
+          },
+          "id": "16245214140621"
         },
-        "id": "162272541342971"
+        "id": "btnToMac"
       }
     ],
-    "product-version": ["1"],
+    "product-version": [
+      "1"
+    ],
+    "meta-data": {
+      "product_id": "8225",
+      "page_content": "99122",
+      "no_clones": "1",
+      "no_widgets": "1"
+    },
     "id": "0"
   },
   "issues": []

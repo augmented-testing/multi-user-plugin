@@ -4,15 +4,15 @@
     {
       "product-version": "1",
       "tester": "Andreas",
-      "created-at": "Fri Jun 04 10:35:47 CEST 2021",
-      "id": "16227957478850",
+      "created-at": "Thu Jun 24 11:17:22 CEST 2021",
+      "id": "16245262423746",
       "widgets": [
-        "162272541342971",
-        "162279579333197",
-        "162279581692320",
-        "16227958250121"
+        "btnToMac",
+        "btnToMini",
+        "btnToMiniTechInfo",
+        "162452630062891"
       ],
-      "session-duration": 87259,
+      "session-duration": 110251,
       "session-id": null
     }
   ],
@@ -20,50 +20,157 @@
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 18.05,
+      "weight": 20,
       "meta-data": {
-        "matching_widget": "162279579333021",
-        "match_time": "12",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+        "name": "",
+        "href": "https://www.apple.com/se/",
+        "id": "ac-gn-firstfocus",
+        "text": "Apple",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-gn-link ac-gn-link-apple"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526059620,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452605751671",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20,
+      "meta-data": {
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
+        "name": "",
+        "href": "https://www.apple.com/se/macbook-air/specs/",
+        "id": "",
+        "text": "Teknisk info",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-ln-menu-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526029046,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToAirTechInfo",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 36,
+      "meta-data": {
+        "matching_widget": "162452632733970",
+        "match_time": "7",
         "match_score": "550",
         "type": "",
         "title": "",
         "match_percent": "100",
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
-        "children": "2",
-        "execute_time": "156",
+        "contains": "0",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
+        "children": "0",
+        "execute_time": "270",
         "name": "",
-        "href": "https://www.apple.com/se/macbook-air/",
+        "href": "https://www.apple.com/se/mac-mini/specs/",
         "id": "",
-        "text": "MacBook Air",
+        "text": "Teknisk info",
         "tag": "A",
-        "class": "chapternav-link"
+        "class": "ac-ln-menu-link"
       },
       "reported-by": null,
       "type": "ACTION",
+      "created-date-ms": 1624526287958,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "61", "width": "70", "y": "55", "height": "74" },
-      "id": "162272541697749",
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToMiniTechInfo",
       "text": null,
       "created-by": "Andreas",
-      "reported-data": null,
       "status": "LOCATED"
     },
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 48.8,
+      "weight": 36,
       "meta-data": {
-        "matching_widget": "162279583471415",
-        "match_time": "2",
-        "match_score": "542",
+        "matching_widget": "162452634879822",
+        "match_time": "3",
+        "match_score": "650",
         "type": "",
         "title": "",
-        "match_percent": "98",
+        "match_percent": "100",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+        "children": "1",
+        "execute_time": "306",
+        "name": "",
+        "href": "https://www.apple.com/se/",
+        "id": "ac-gn-firstfocus",
+        "text": "Apple",
+        "tag": "A",
+        "class": "ac-gn-link ac-gn-link-apple"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526301619,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452630062891",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 73.7856,
+      "meta-data": {
+        "match_time": "2",
+        "match_score": "0",
+        "type": "",
+        "title": "",
+        "match_percent": "0",
         "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
-        "execute_time": "72",
+        "execute_time": "97",
         "name": "",
         "href": "https://www.apple.com/se/mac/",
         "id": "",
@@ -73,25 +180,106 @@
       },
       "reported-by": null,
       "type": "ACTION",
+      "created-date-ms": 1624521414062,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "224", "width": "44", "y": "0", "height": "46" },
-      "id": "162272541342971",
+      "location": {
+        "x": "224",
+        "width": "46",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "btnToMac",
       "text": null,
       "created-by": "Andreas",
-      "reported-data": null,
       "status": "UNLOCATED"
     },
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 20.0,
+      "weight": 30.179600000000004,
+      "meta-data": {
+        "matching_widget": "162452631655910",
+        "match_time": "2",
+        "match_score": "550",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
+        "execute_time": "196",
+        "name": "",
+        "href": "https://www.apple.com/se/macbook-air/",
+        "id": "",
+        "text": "MacBook Air",
+        "tag": "A",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624521432468,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "61",
+        "width": "70",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "btnToAir",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 36,
+      "meta-data": {
+        "matching_widget": "162452631655986",
+        "match_time": "12",
+        "match_score": "550",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[7]/a[1]",
+        "children": "2",
+        "execute_time": "196",
+        "name": "",
+        "href": "https://www.apple.com/se/mac-mini/",
+        "id": "",
+        "text": "Mac mini",
+        "tag": "A",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526278866,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "758",
+        "width": "49",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "btnToMini",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0,
       "meta-data": {
         "contains": "0",
         "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
         "children": "0",
-        "execute_time": "193",
+        "execute_time": "270",
         "name": "",
         "href": "https://www.apple.com/se/mac-mini/specs/",
         "id": "",
@@ -103,112 +291,63 @@
       },
       "reported-by": null,
       "type": "ACTION",
-      "created-by-plugin": null,
+      "created-by-plugin": "SeleniumPlugin",
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "987", "width": "65", "y": "59", "height": "22" },
-      "id": "162279581692320",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[7]/a[1]",
-        "children": "2",
-        "execute_time": "156",
-        "name": "",
-        "href": "https://www.apple.com/se/mac-mini/",
-        "id": "",
-        "text": "Mac mini",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "chapternav-link"
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
       },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "758", "width": "49", "y": "55", "height": "74" },
-      "id": "162279579333197",
+      "id": "162452632733970",
       "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "44", "y": "0", "height": "36" },
-      "id": "162272542394873",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20.0,
-      "meta-data": {
-        "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "children": "1",
-        "execute_time": "256",
-        "name": "",
-        "href": "https://www.apple.com/se/",
-        "id": "ac-gn-firstfocus",
-        "text": "Apple",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-gn-link ac-gn-link-apple"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": { "x": "132", "width": "36", "y": "0", "height": "44" },
-      "id": "16227958250121",
-      "text": null,
-      "created-by": "Andreas",
-      "reported-data": null,
+      "created-by": null,
       "status": "UNLOCATED"
     },
     {
       "visibility": "HIDDEN",
       "reported-text": null,
-      "weight": 0.0,
+      "weight": 0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+        "children": "1",
+        "execute_time": "306",
+        "name": "",
+        "href": "https://www.apple.com/se/",
+        "id": "ac-gn-firstfocus",
+        "text": "Apple",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-gn-link ac-gn-link-apple"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
+      },
+      "id": "162452634879822",
+      "text": null,
+      "created-by": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0,
       "meta-data": {
         "contains": "1",
         "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[1]/a[1]",
         "children": "2",
-        "execute_time": "156",
+        "execute_time": "196",
         "name": "",
         "href": "https://www.apple.com/se/macbook-air/",
         "id": "",
@@ -223,41 +362,49 @@
       "created-by-plugin": "SeleniumPlugin",
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "61", "width": "70", "y": "55", "height": "74" },
-      "id": "162279579333021",
+      "location": {
+        "x": "61",
+        "width": "70",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "162452631655910",
       "text": null,
       "created-by": null,
-      "reported-data": null,
       "status": "UNLOCATED"
     },
     {
       "visibility": "HIDDEN",
       "reported-text": null,
-      "weight": 0.0,
+      "weight": 0,
       "meta-data": {
         "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
-        "children": "1",
-        "execute_time": "72",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[7]/a[1]",
+        "children": "2",
+        "execute_time": "196",
         "name": "",
-        "href": "https://www.apple.com/se/mac/",
+        "href": "https://www.apple.com/se/mac-mini/",
         "id": "",
-        "text": "Mac",
+        "text": "Mac mini",
         "tag": "A",
         "type": "",
         "title": "",
-        "class": "ac-gn-link ac-gn-link-mac"
+        "class": "chapternav-link"
       },
       "reported-by": null,
       "type": "ACTION",
       "created-by-plugin": "SeleniumPlugin",
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
-      "location": { "x": "224", "width": "46", "y": "0", "height": "44" },
-      "id": "162279583471415",
+      "location": {
+        "x": "758",
+        "width": "49",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "162452631655986",
       "text": null,
       "created-by": null,
-      "reported-data": null,
       "status": "UNLOCATED"
     }
   ],
@@ -266,48 +413,95 @@
     "visible-widgets": [
       {
         "next-state": {
-          "bookmarks": null,
+          "bookmarks": "Mac",
           "visible-widgets": [
             {
               "next-state": {
-                "bookmarks": null,
-                "visible-widgets": [
-                  { "next-state": null, "id": "162272542394873" }
-                ],
-                "product-version": [],
-                "id": "16227254189402"
-              },
-              "id": "162272541697749"
-            },
-            {
-              "next-state": {
-                "bookmarks": null,
+                "bookmarks": "MacBook Air",
                 "visible-widgets": [
                   {
                     "next-state": {
-                      "bookmarks": null,
+                      "bookmarks": "MacBookAir technical infos",
                       "visible-widgets": [
-                        { "next-state": null, "id": "16227958250121" }
+                        {
+                          "next-state": null,
+                          "id": "162452605751671"
+                        }
                       ],
-                      "product-version": ["1"],
-                      "id": "16227958190912"
+                      "product-version": [],
+                      "meta-data": {},
+                      "id": "16245260290461"
                     },
-                    "id": "162279581692320"
+                    "id": "btnToAirTechInfo"
                   }
                 ],
-                "product-version": ["1"],
-                "id": "16227957941591"
+                "product-version": [],
+                "meta-data": {},
+                "id": "16245214324682"
               },
-              "id": "162279579333197"
+              "id": "btnToAir"
+            },
+            {
+              "next-state": {
+                "bookmarks": "Mac Mini",
+                "visible-widgets": [
+                  {
+                    "next-state": {
+                      "bookmarks": "Mac Mini technical info",
+                      "visible-widgets": [
+                        {
+                          "next-state": null,
+                          "id": "162452630062891"
+                        }
+                      ],
+                      "product-version": [
+                        "1"
+                      ],
+                      "meta-data": {
+                        "page_content": "2117310",
+                        "no_clones": "1",
+                        "no_widgets": "1"
+                      },
+                      "id": "16245262879588"
+                    },
+                    "id": "btnToMiniTechInfo"
+                  }
+                ],
+                "product-version": [
+                  "1"
+                ],
+                "meta-data": {
+                  "page_content": "103251",
+                  "no_clones": "1",
+                  "no_widgets": "1"
+                },
+                "id": "16245262788667"
+              },
+              "id": "btnToMini"
             }
           ],
-          "product-version": ["1"],
-          "id": "16227254155681"
+          "product-version": [
+            "1"
+          ],
+          "meta-data": {
+            "page_content": "153337",
+            "no_clones": "1",
+            "no_widgets": "2"
+          },
+          "id": "16245214140621"
         },
-        "id": "162272541342971"
+        "id": "btnToMac"
       }
     ],
-    "product-version": ["1"],
+    "product-version": [
+      "1"
+    ],
+    "meta-data": {
+      "product_id": "8253",
+      "page_content": "99122",
+      "no_clones": "1",
+      "no_widgets": "1"
+    },
     "id": "0"
   },
   "issues": []
