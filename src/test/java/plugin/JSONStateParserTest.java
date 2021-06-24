@@ -178,23 +178,28 @@ public class JSONStateParserTest {
 
         AppState result = JSONStateParser.parseCompleteAppState(jsonState);
 
-        assertNotNull(result);
-        assertEquals("0", result.getId());
-        assertEquals("Home", result.getBookmark());
-        assertEquals(1, result.getVisibleActions().size());
-        
-        Widget w1 = result.getVisibleActions().get(0);
-        assertEquals("162272541342971", w1.getId());
-        
-        AppState level2 = w1.getNextState();
-        assertNotNull(level2);
-        assertEquals(2, level2.getVisibleActions().size());
-        
-        Widget w2 = level2.getVisibleActions().get(0);
-        assertEquals("162272541697749", w2.getId());
+        Widget btnToMac = result.getWidget("btnToMac");
+        assertNotNull(btnToMac);
+        AppState stateMac = btnToMac.getNextState();
+        assertNotNull(stateMac);
 
-        Widget w3 = level2.getVisibleActions().get(1);
-        assertEquals("162272543838154", w3.getId());
+        Widget btnToAir = stateMac.getWidget("btnToAir");
+        assertNotNull(btnToAir);
+        AppState stateAir = btnToAir.getNextState();
+        assertNotNull(stateAir);
+        Widget btnToAirTechInfo = stateAir.getWidget("btnToAirTechInfo");
+        assertNotNull(btnToAirTechInfo);
+        AppState stateAirTechInfo = btnToAirTechInfo.getNextState();
+        assertNotNull(stateAirTechInfo);
+
+        Widget btnToPro13 = stateMac.getWidget("btnToPro13");
+        assertNotNull(btnToPro13);
+        AppState statePro13 = btnToPro13.getNextState();
+        assertNotNull(statePro13);
+        Widget btnToPro13TechInfo = statePro13.getWidget("btnToPro13TechInfo");
+        assertNotNull(btnToPro13TechInfo);
+        AppState statePro13TechInfo = btnToPro13TechInfo.getNextState();
+        assertNotNull(statePro13TechInfo);
     }
 
     @Test
