@@ -94,6 +94,23 @@ public class MultiUserTest extends MultiUser {
     }
 
     @Test
+    public void testGetDiffMetaDataFromState() {
+        AppState state = new AppState("0");
+
+        Map<String, DiffType> result = getDiffMetaDataFromState(state);
+        assertEquals(0, result.size());
+
+        Map<String, DiffType> diffMetaData = new HashMap<>();
+        diffMetaData.put("123", DiffType.CREATED);
+        diffMetaData.put("456", DiffType.DELETED);
+        state.putMetadata(META_DATA_DIFF, diffMetaData);
+        result = getDiffMetaDataFromState(state);
+        assertEquals(2, result.size());
+        assertEquals(DiffType.CREATED, result.get("123"));
+        assertEquals(DiffType.DELETED, result.get("456"));
+    }
+
+    @Test
     public void testHasEqualMetaData() {
         Widget widget = createWidget("1");
         Widget other = createWidget("1");

@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -378,6 +379,17 @@ public class MultiUser {
         }
 
         return allWidgets;
+    }
+
+    @SuppressWarnings("unchecked")
+    protected Map<String, DiffType> getDiffMetaDataFromState(AppState state) {
+        try {
+            Map<String, DiffType> diff = (Map<String, DiffType>)state.getMetadata(META_DATA_DIFF);
+            return Optional.ofNullable(diff).orElseGet(() -> new HashMap<String, DiffType>());
+        } catch (ClassCastException e) {
+            log("Unable to cast meta-data object as Map<String, DiffType> in state with id " + state.getId());
+            return new HashMap<>();
+        } 
     }
 
     protected int indexOfSameWidget(Widget widget, List<Widget> list ) {
