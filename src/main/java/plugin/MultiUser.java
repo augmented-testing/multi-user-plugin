@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import org.json.simple.JSONObject;
@@ -363,6 +364,98 @@ public class MultiUser {
         after.putMetadata(META_DATA_DIFF, widgetDiff);
     }
 
+    protected AppState mergeStateChanges(AppState sharedState, AppState sessionState) {
+        AppState result = deepCopy(sharedState);
+
+        doMergeStateChangesIntoShared(result, sessionState);
+         
+        return result;
+    }
+
+    private void doMergeStateChangesIntoShared(AppState sharedState, AppState sessionState) {
+        if (sharedState == null && sessionState == null) {
+            return;
+        }
+
+        if (sessionState == null) {
+            return;
+        }
+
+        if (sharedState == null) {
+            System.out.println("original == null");
+        }
+        
+        sessionState.getMetadataKeys().stream()
+            .filter(key -> sharedState.getMetadata(key) == null)
+            .filter(key -> !key.equalsIgnoreCase(META_DATA_DIFF))
+            .forEach(key -> sharedState.putMetadata(key, sessionState.getMetadata(key)));
+        
+        Map<String, DiffType> diffMap = getDiffMetaDataFromState(sessionState);
+        for (Entry<String, DiffType> diffItem : diffMap.entrySet()) {
+            String widgetId = diffItem.getKey();
+
+            switch (diffItem.getValue()) {
+                case DELETED:
+                    handleMergeDeletion(sharedState.getWidget(widgetId));    
+                    break;
+                case CREATED:
+                    handleMergeCreation(sharedState, sessionState, widgetId);
+                    break;
+                case NO_CHANGES:
+                    handleMergeNoChange(sharedState, sessionState, widgetId);
+                    break;
+                default:
+                    log("[Merge] DiffType '" +diffItem.getValue()+ "' does not have a merging strategy");
+                    break;
+            }
+                             
+        }
+    }
+
+    protected void handleMergeDeletion(Widget widget) {
+        markAsDeleted(widget);
+
+        AppState nextState = widget.getNextState();
+        if (nextState == null) {
+            return;
+        }
+
+        nextState.getAllIncludingChildWidgets().forEach(w -> markAsDeleted(w));
+    }
+
+    protected void handleMergeCreation(AppState sharedState, AppState sessionState, String widgetId) {
+        Widget createdWidget = sessionState.getWidget(widgetId);
+        int foundIndex = indexOfSameWidget(createdWidget, sharedState.getVisibleActions());
+        boolean isPresentInSharedState = foundIndex >= 0;
+        
+        if (isPresentInSharedState) {
+            handleMergeChange(widgetId);
+        }
+
+        sharedState.addWidget(createdWidget);
+    }
+
+    protected void handleMergeNoChange(AppState sharedState, AppState sessionState, String widgetId) {
+        Widget originalWidget = sharedState.getWidget(widgetId);
+        Widget otherWidget = sessionState.getWidget(widgetId);
+        
+        AppState nextStateFromShared = null;
+        AppState nextStateFromSession = null;
+        
+        if (originalWidget != null) {
+            nextStateFromShared = originalWidget.getNextState();
+        }
+        if (otherWidget != null) {
+            nextStateFromSession = otherWidget.getNextState();
+        }
+
+        doMergeStateChangesIntoShared(nextStateFromShared, nextStateFromSession);
+    }
+
+    protected void handleMergeChange(String widgetId) {
+        log("Function handleMergeChange is not implemented yet. Caused by widget with id " + widgetId);
+    }
+
     protected List<Widget> getAllVisibleActionsRecursive(Widget widget) {
         List<Widget> allWidgets = new LinkedList<>();
 
@@ -412,6 +505,15 @@ public class MultiUser {
         }
 
         widget.putMetadata(DELETED_AT, Instant.now().toEpochMilli());
+    }
+
+    protected boolean isMarkedAsDeleted(Widget widget) {
+        try {
+            long epochMilli = (long)widget.getMetadata(DELETED_AT);
+            return epochMilli > 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private void log(String message) {
