@@ -4,15 +4,15 @@
     {
       "product-version": "1",
       "tester": "Andreas",
-      "created-at": "Thu Jun 24 11:24:32 CEST 2021",
-      "id": "162452667255310",
+      "created-at": "Fri Jun 25 10:43:44 CEST 2021",
+      "id": "16246106243750",
       "widgets": [
         "btnToMac",
-        "btnToDisplay",
-        "btnToDisplayTechInfo",
-        "162452674674776"
+        "btnToMacMini",
+        "btnToMacMiniBuy",
+        "162461074169852"
       ],
-      "session-duration": 88409,
+      "session-duration": 128997,
       "session-id": null
     }
   ],
@@ -22,64 +22,32 @@
       "reported-text": null,
       "weight": 20,
       "meta-data": {
-        "contains": "0",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/a[1]",
-        "children": "0",
-        "execute_time": "155",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[7]/a[1]",
+        "children": "2",
+        "execute_time": "137",
         "name": "",
-        "href": "https://www.apple.com/se/pro-display-xdr/specs/",
+        "href": "https://www.apple.com/se/mac-mini/",
         "id": "",
-        "text": "Teknisk info",
+        "text": "Mac mini",
         "tag": "A",
         "type": "",
         "title": "",
-        "class": "ac-ln-menu-link"
+        "class": "chapternav-link"
       },
       "reported-by": null,
       "type": "ACTION",
-      "created-date-ms": 1624526731768,
+      "created-date-ms": 1624610654620,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
       "location": {
-        "x": "987",
-        "width": "65",
-        "y": "59",
-        "height": "22"
+        "x": "758",
+        "width": "49",
+        "y": "55",
+        "height": "74"
       },
-      "id": "btnToDisplayTechInfo",
-      "text": null,
-      "created-by": "Andreas",
-      "status": "UNLOCATED"
-    },
-    {
-      "visibility": "VISIBLE",
-      "reported-text": null,
-      "weight": 20,
-      "meta-data": {
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
-        "name": "",
-        "href": "https://www.apple.com/se/macbook-pro-13/specs/",
-        "id": "",
-        "text": "Teknisk info",
-        "tag": "A",
-        "type": "",
-        "title": "",
-        "class": "ac-ln-menu-link"
-      },
-      "reported-by": null,
-      "type": "ACTION",
-      "created-date-ms": 1624526078522,
-      "created-by-plugin": null,
-      "subtype": "LEFT_CLICK_ACTION",
-      "comment": null,
-      "location": {
-        "x": "987",
-        "width": "65",
-        "y": "59",
-        "height": "22"
-      },
-      "id": "btnToPro13TechInfo",
+      "id": "btnToMacMini",
       "text": null,
       "created-by": "Andreas",
       "status": "UNLOCATED"
@@ -119,16 +87,16 @@
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 67.232,
+      "weight": 73.7856,
       "meta-data": {
-        "matching_widget": "162452676041464",
+        "matching_widget": "162461075308525",
         "match_time": "1",
         "match_score": "550",
         "type": "",
         "title": "",
         "match_percent": "100",
         "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
-        "execute_time": "92",
+        "execute_time": "70",
         "name": "",
         "href": "https://www.apple.com/se/mac/",
         "id": "",
@@ -159,31 +127,31 @@
       "weight": 20,
       "meta-data": {
         "contains": "1",
-        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
-        "children": "2",
-        "execute_time": "144",
+        "xpath": "/html[1]/body[1]/div[2]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
+        "children": "1",
+        "execute_time": "273",
         "name": "",
-        "href": "https://www.apple.com/se/pro-display-xdr/",
-        "id": "",
-        "text": "Pro Display XDR",
+        "href": "https://www.apple.com/se/",
+        "id": "ac-gn-firstfocus",
+        "text": "Apple",
         "tag": "A",
         "type": "",
         "title": "",
-        "class": "chapternav-link"
+        "class": "ac-gn-link ac-gn-link-apple"
       },
       "reported-by": null,
       "type": "ACTION",
-      "created-date-ms": 1624526715870,
+      "created-date-ms": 1624610743800,
       "created-by-plugin": null,
       "subtype": "LEFT_CLICK_ACTION",
       "comment": null,
       "location": {
-        "x": "953",
-        "width": "90",
-        "y": "55",
-        "height": "74"
+        "x": "132",
+        "width": "36",
+        "y": "0",
+        "height": "44"
       },
-      "id": "btnToDisplay",
+      "id": "162461074169852",
       "text": null,
       "created-by": "Andreas",
       "status": "UNLOCATED"
@@ -191,16 +159,51 @@
     {
       "visibility": "VISIBLE",
       "reported-text": null,
-      "weight": 33.440000000000005,
+      "weight": 20,
       "meta-data": {
-        "matching_widget": "162452671483896",
-        "match_time": "2",
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[2]/div[2]/a[1]",
+        "children": "1",
+        "execute_time": "176",
+        "name": "",
+        "href": "https://www.apple.com/se/shop/goto/buy_mac/mac_mini",
+        "id": "",
+        "text": "Köp Handla Mac mini",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-ln-button"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624610718421,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "1077",
+        "width": "45",
+        "y": "58",
+        "height": "24"
+      },
+      "id": "btnToMacMiniBuy",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 31.768000000000004,
+      "meta-data": {
+        "matching_widget": "162461065373478",
+        "match_time": "3",
         "match_score": "550",
         "type": "",
         "title": "",
         "match_percent": "100",
         "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
-        "execute_time": "287",
+        "execute_time": "137",
         "name": "",
         "href": "https://www.apple.com/se/macbook-pro-13/",
         "id": "",
@@ -230,10 +233,39 @@
       "reported-text": null,
       "weight": 20,
       "meta-data": {
-        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/a[1]",
+        "name": "",
+        "href": "https://www.apple.com/se/pro-display-xdr/specs/",
+        "id": "",
+        "text": "Teknisk info",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-ln-menu-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526731768,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToDisplayTechInfo",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20,
+      "meta-data": {
         "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[1]/a[1]",
-        "children": "1",
-        "execute_time": "194",
         "name": "",
         "href": "https://www.apple.com/se/",
         "id": "ac-gn-firstfocus",
@@ -261,6 +293,75 @@
       "status": "UNLOCATED"
     },
     {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 19,
+      "meta-data": {
+        "matching_widget": "162461065373470",
+        "match_time": "2",
+        "match_score": "550",
+        "type": "",
+        "title": "",
+        "match_percent": "100",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
+        "execute_time": "137",
+        "name": "",
+        "href": "https://www.apple.com/se/pro-display-xdr/",
+        "id": "",
+        "text": "Pro Display XDR",
+        "tag": "A",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526715870,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "953",
+        "width": "90",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "btnToDisplay",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "LOCATED"
+    },
+    {
+      "visibility": "VISIBLE",
+      "reported-text": null,
+      "weight": 20,
+      "meta-data": {
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[2]",
+        "name": "",
+        "href": "https://www.apple.com/se/macbook-pro-13/specs/",
+        "id": "",
+        "text": "Teknisk info",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "ac-ln-menu-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-date-ms": 1624526078522,
+      "created-by-plugin": null,
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "987",
+        "width": "65",
+        "y": "59",
+        "height": "22"
+      },
+      "id": "btnToPro13TechInfo",
+      "text": null,
+      "created-by": "Andreas",
+      "status": "UNLOCATED"
+    },
+    {
       "visibility": "HIDDEN",
       "reported-text": null,
       "weight": 0,
@@ -268,7 +369,7 @@
         "contains": "1",
         "xpath": "/html[1]/body[1]/nav[1]/div[1]/ul[2]/li[2]/a[1]",
         "children": "1",
-        "execute_time": "92",
+        "execute_time": "70",
         "name": "",
         "href": "https://www.apple.com/se/mac/",
         "id": "",
@@ -289,7 +390,7 @@
         "y": "0",
         "height": "44"
       },
-      "id": "162452676041464",
+      "id": "162461075308525",
       "text": null,
       "created-by": null,
       "status": "UNLOCATED"
@@ -302,7 +403,7 @@
         "contains": "1",
         "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[2]/a[1]",
         "children": "2",
-        "execute_time": "287",
+        "execute_time": "137",
         "name": "",
         "href": "https://www.apple.com/se/macbook-pro-13/",
         "id": "",
@@ -323,7 +424,41 @@
         "y": "55",
         "height": "74"
       },
-      "id": "162452671483896",
+      "id": "162461065373478",
+      "text": null,
+      "created-by": null,
+      "status": "UNLOCATED"
+    },
+    {
+      "visibility": "HIDDEN",
+      "reported-text": null,
+      "weight": 0,
+      "meta-data": {
+        "contains": "1",
+        "xpath": "/html[1]/body[1]/nav[2]/div[1]/ul[1]/li[9]/a[1]",
+        "children": "2",
+        "execute_time": "137",
+        "name": "",
+        "href": "https://www.apple.com/se/pro-display-xdr/",
+        "id": "",
+        "text": "Pro Display XDR",
+        "tag": "A",
+        "type": "",
+        "title": "",
+        "class": "chapternav-link"
+      },
+      "reported-by": null,
+      "type": "ACTION",
+      "created-by-plugin": "SeleniumPlugin",
+      "subtype": "LEFT_CLICK_ACTION",
+      "comment": null,
+      "location": {
+        "x": "953",
+        "width": "90",
+        "y": "55",
+        "height": "74"
+      },
+      "id": "162461065373470",
       "text": null,
       "created-by": null,
       "status": "UNLOCATED"
@@ -375,30 +510,56 @@
                           "id": "162452674674776"
                         }
                       ],
+                      "product-version": [],
+                      "meta-data": {},
+                      "id": "162452673176812"
+                    },
+                    "id": "btnToDisplayTechInfo"
+                  }
+                ],
+                "product-version": [],
+                "meta-data": {},
+                "id": "162452671587011"
+              },
+              "id": "btnToDisplay"
+            },
+            {
+              "next-state": {
+                "bookmarks": "Mini",
+                "visible-widgets": [
+                  {
+                    "next-state": {
+                      "bookmarks": "Mini buy",
+                      "visible-widgets": [
+                        {
+                          "next-state": null,
+                          "id": "162461074169852"
+                        }
+                      ],
                       "product-version": [
                         "1"
                       ],
                       "meta-data": {
-                        "page_content": "85298",
+                        "page_content": "84193",
                         "no_clones": "1",
                         "no_widgets": "0"
                       },
-                      "id": "162452673176812"
+                      "id": "16246107184212"
                     },
-                    "id": "btnToDisplayTechInfo"
+                    "id": "btnToMacMiniBuy"
                   }
                 ],
                 "product-version": [
                   "1"
                 ],
                 "meta-data": {
-                  "page_content": "77205",
+                  "page_content": "103251",
                   "no_clones": "1",
                   "no_widgets": "0"
                 },
-                "id": "162452671587011"
+                "id": "16246106546201"
               },
-              "id": "btnToDisplay"
+              "id": "btnToMacMini"
             }
           ],
           "product-version": [
@@ -418,7 +579,7 @@
       "1"
     ],
     "meta-data": {
-      "product_id": "8225",
+      "product_id": "8204",
       "page_content": "99122",
       "no_clones": "1",
       "no_widgets": "1"
