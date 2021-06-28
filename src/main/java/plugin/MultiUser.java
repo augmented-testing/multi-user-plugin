@@ -239,59 +239,6 @@ public class MultiUser {
             && isSameClass;
     }
 
-    protected AppState mergeInitialAppStates(AppState state, AppState other) {
-        if (state == null && other == null) {
-            throw new IllegalArgumentException("Expected AppState arguments to be not null at the same time");
-        }
-
-        if (state == null) {
-            return other;
-        }
-
-        if (other == null) {
-            return state;
-        }
-
-        Map<Widget,Widget> sameWidgets = new HashMap<>();
-        List<Widget> diffWidgets = new LinkedList<>();
-        
-        for (Widget widget : state.getVisibleActions()) {
-            boolean foundMatch = false;
-            for (Widget otherWidget : other.getVisibleActions() ) {
-                if (isSameWidget(widget, otherWidget)) {
-                    sameWidgets.put(otherWidget, widget);
-                    foundMatch = true;
-                }
-            }
-            if (!foundMatch) {
-                diffWidgets.add(widget);
-            }
-        }
-        
-        diffWidgets.addAll(other.getVisibleActions().stream()
-            .filter(o -> sameWidgets.get(o) == null)
-            .collect(Collectors.toList())
-        );                  
-        
-        String bookmark = chooseStrValue(state.getBookmark(), other.getBookmark());
-        AppState resultState = new AppState(state.getId(), bookmark);
-        diffWidgets.forEach(w -> resultState.addWidget(w));
-        
-        for (Widget otherWidget: sameWidgets.keySet()) {
-            Widget widget = sameWidgets.get(otherWidget);
-            Widget merged = mergeSameWidgets(widget, otherWidget);
-
-            if (widget.getNextState() != null || otherWidget.getNextState() != null) {
-                AppState nextState = mergeInitialAppStates(widget.getNextState(), otherWidget.getNextState());
-                merged.setNextState(nextState);
-            }
-
-            resultState.addWidget(merged);
-        }
-
-        return resultState;
-    }
-
     protected String chooseStrValue(String value, String otherValue) {
         if (value == null && otherValue == null) {
             return null;

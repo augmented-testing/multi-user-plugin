@@ -154,14 +154,15 @@ public class MultiUserTest extends MultiUser {
         w4.putMetadata("xpath", "/html[1]/body[1]/div[1]/div[1]/div[1]");
         secondState.addWidget(w4);
 
-        AppState result = mergeInitialAppStates(firsState, secondState);
+        annotateDiffsInStates(null, secondState);
+        AppState result = mergeStateChanges(firsState, secondState);
 
         assertNotNull(result);
         assertEquals(3, result.getVisibleActions().size());
         
         assertNotNull(result.getWidget("1"));
-        assertEquals(w2, result.getWidget("2"));
-        assertEquals(w4, result.getWidget("4"));
+        assertNotNull(result.getWidget("2"));
+        assertNotNull(result.getWidget("4"));
         assertNull(result.getWidget("3"));
     }
 
@@ -183,13 +184,14 @@ public class MultiUserTest extends MultiUser {
     * L70 L71 
     */ 
     @Test
-    public void testMergeAppState_Scenario10() throws Exception {
+    public void testMergeStateChanges_InitialMerge() throws Exception {
         String filePath = JSONStateParser.class.getClassLoader().getResource("scenario_10/state.json").getPath();
         AppState state = loadJSONModel(filePath);
         String filePathOther = JSONStateParser.class.getClassLoader().getResource("scenario_10/state_other.json").getPath();
         AppState other = loadJSONModel(filePathOther);
 
-        AppState result = mergeInitialAppStates(state, other);
+        annotateDiffsInStates(null, other);
+        AppState result = mergeStateChanges(state, other);
 
         assertNotNull(result);
         assertEquals("0", result.getId());
@@ -252,32 +254,6 @@ public class MultiUserTest extends MultiUser {
         assertEquals("162124547047918", w70.getId());
         Widget w71 = level71.getVisibleActions().get(0);
         assertEquals("162124575555994", w71.getId());
-    }
-
-    @Test
-    public void testMergeInitialAppStates_OneNullArg() {
-        AppState firsState = new AppState("10","Home");
-        firsState.addWidget(createWidget("1"));
-        Widget w2 = createWidget("2");
-        w2.putMetadata("href", "https://othersite.de/new");
-        w2.putMetadata("xpath", "/html[1]/body[1]/div[1]");
-        firsState.addWidget(w2); 
-
-        AppState result = mergeInitialAppStates(firsState, null);
-
-        assertNotNull(result);
-        assertEquals(firsState, result);
-        
-        result = mergeInitialAppStates(null, firsState);
-        
-        assertNotNull(result);
-        assertEquals(firsState, result);
-
-    }
-    
-    @Test(expected = IllegalArgumentException.class)
-    public void testMergeInitialAppStates_Null () {
-        mergeInitialAppStates(null, null);
     }
 
     @Test
