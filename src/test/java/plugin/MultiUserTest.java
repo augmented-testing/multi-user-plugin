@@ -16,7 +16,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -337,7 +336,7 @@ public class MultiUserTest extends MultiUser {
     }
 
     @Test
-    public void testMergeStateChanges() throws Exception {
+    public void testMergeStateChanges_ChangesByOneUser() throws Exception {
         AppState stateInitial = loadJSONModel(JSONStateParser.class.getClassLoader().getResource("scenario_20/state_initial.json").getPath()); 
         AppState stateChanged = loadJSONModel(JSONStateParser.class.getClassLoader().getResource("scenario_20/state_user1.json").getPath());
         
@@ -387,8 +386,79 @@ public class MultiUserTest extends MultiUser {
         assertTrue(isMarkedAsDeleted(btnToPro13TechInfo));
         AppState statePro13TechInfo = btnToPro13TechInfo.getNextState();
         assertNotNull(statePro13TechInfo);
+    }
 
-        stateMac.getVisibleActions().forEach(w -> System.out.println(w.getId()));
+    @Test
+    public void testMergeStateChanges_ChangesByTwoUsers() throws Exception {
+        AppState stateInitial = loadJSONModel(JSONStateParser.class.getClassLoader().getResource("scenario_20/state_initial.json").getPath()); 
+        AppState stateChangedU1 = loadJSONModel(JSONStateParser.class.getClassLoader().getResource("scenario_20/state_user1.json").getPath());
+        AppState stateChangedU2 = loadJSONModel(JSONStateParser.class.getClassLoader().getResource("scenario_20/state_user2.json").getPath()); 
+        
+        annotateDiffsInStates(stateInitial, stateChangedU1);
+        annotateDiffsInStates(stateInitial, stateChangedU2);
+        AppState afterUser1Merge = mergeStateChanges(stateInitial, stateChangedU1);
+        
+        AppState result = mergeStateChanges(afterUser1Merge, stateChangedU2);
+    
+        assertNotNull(result);
+        assertEquals("0", result.getId());
+        assertEquals("Home",result.getBookmark());
+        assertEquals(1,result.getVisibleActions().size());
+
+        Widget btnToMac = result.getWidget("btnToMac");
+        assertNotNull(btnToMac);
+        AppState stateMac = btnToMac.getNextState();
+        assertNotNull(stateMac);
+
+        Widget btnToAir = stateMac.getWidget("btnToAir");
+        assertNotNull(btnToAir);
+        assertTrue(isMarkedAsDeleted(btnToAir));
+        AppState stateAir = btnToAir.getNextState();
+        assertNotNull(stateAir);
+        Widget btnToAirTechInfo = stateAir.getWidget("btnToAirTechInfo");
+        assertNotNull(btnToAirTechInfo);
+        assertTrue(isMarkedAsDeleted(btnToAirTechInfo));
+        AppState stateAirTechInfo = btnToAirTechInfo.getNextState();
+        assertNotNull(stateAirTechInfo);
+
+        
+        Widget btnToPro13 = stateMac.getWidget("btnToPro13");
+        assertNotNull(btnToPro13);
+        assertTrue(isMarkedAsDeleted(btnToPro13));
+        AppState statePro13 = btnToPro13.getNextState();
+        assertNotNull(statePro13);
+        Widget btnToPro13TechInfo = statePro13.getWidget("btnToPro13TechInfo");
+        assertNotNull(btnToPro13TechInfo);
+        assertTrue(isMarkedAsDeleted(btnToPro13TechInfo));
+        AppState statePro13TechInfo = btnToPro13TechInfo.getNextState();
+        assertNotNull(statePro13TechInfo);
+        
+        Widget btnToDisplay = stateMac.getWidget("btnToDisplay");
+        assertNotNull(btnToDisplay);
+        assertFalse(isMarkedAsDeleted(btnToDisplay));
+        AppState stateDisplay = btnToDisplay.getNextState();
+        assertNotNull(stateDisplay);
+        Widget btnToDisplayTechInfo = stateDisplay.getWidget("btnToDisplayTechInfo");
+        assertNotNull(btnToDisplayTechInfo);
+        assertFalse(isMarkedAsDeleted(btnToDisplayTechInfo));
+        AppState stateDisplayTechInfo = btnToAirTechInfo.getNextState();
+        assertNotNull(stateDisplayTechInfo);
+        
+        Widget btnToMini = stateMac.getWidget("btnToMini");
+        assertNotNull(btnToMini);
+        assertFalse(isMarkedAsDeleted(btnToMini));
+        AppState stateMini = btnToMini.getNextState();
+        assertNotNull(stateMini);
+        Widget btnToMiniTechInfo = stateMini.getWidget("btnToMiniTechInfo");
+        assertNotNull(btnToMiniTechInfo);
+        assertFalse(isMarkedAsDeleted(btnToMiniTechInfo));
+        AppState stateMiniTechInfo = btnToMiniTechInfo.getNextState();
+        assertNotNull(stateMiniTechInfo);
+        Widget btnToMiniBuy = stateMini.getWidget("btnToMacMiniBuy");
+        assertNotNull(btnToMiniBuy);
+        assertFalse(isMarkedAsDeleted(btnToMiniBuy));
+        AppState stateMiniBuy = btnToMiniBuy.getNextState();
+        assertNotNull(stateMiniBuy);        
     }
     
     private Widget createWidget(String id) {
