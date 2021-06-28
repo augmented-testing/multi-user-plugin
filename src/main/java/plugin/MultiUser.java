@@ -364,6 +364,15 @@ public class MultiUser {
         after.putMetadata(META_DATA_DIFF, widgetDiff);
     }
 
+    /**
+     * Merges changes of the session app state into the app state from the shared model. 
+     * The method {@link #annotateDiffsInStates(AppState, AppState)} must be called on 
+     * the session state before merging.
+     * 
+     * @param sharedState app state from the shared model 
+     * @param sessionState app state from the current session with changes
+     * @return a copy of the shared state with changes merged from the session state. 
+     */
     protected AppState mergeStateChanges(AppState sharedState, AppState sessionState) {
         AppState result = deepCopy(sharedState);
 
@@ -382,7 +391,8 @@ public class MultiUser {
         }
 
         if (sharedState == null) {
-            System.out.println("original == null");
+            log("Unable to merge session state into NULL shared state. Caused by state with id: " + sessionState.getId());
+            return;
         }
         
         sessionState.getMetadataKeys().stream()
@@ -391,6 +401,10 @@ public class MultiUser {
             .forEach(key -> sharedState.putMetadata(key, sessionState.getMetadata(key)));
         
         Map<String, DiffType> diffMap = getDiffMetaDataFromState(sessionState);
+        if (diffMap.isEmpty()) {
+            log("Session state with id " + sessionState.getId() + " doesn't have any diff annotations to proceed with merge.");
+            return;
+        }
         for (Entry<String, DiffType> diffItem : diffMap.entrySet()) {
             String widgetId = diffItem.getKey();
 
@@ -429,7 +443,9 @@ public class MultiUser {
         boolean isPresentInSharedState = foundIndex >= 0;
         
         if (isPresentInSharedState) {
-            handleMergeChange(widgetId);
+            String widgetIdShared = sharedState.getVisibleActions().get(foundIndex).getId();
+            handleMergeChange(sharedState, sessionState, widgetIdShared, widgetId);
+            return;
         }
 
         sharedState.addWidget(createdWidget);
@@ -452,8 +468,12 @@ public class MultiUser {
         doMergeStateChangesIntoShared(nextStateFromShared, nextStateFromSession);
     }
 
-    protected void handleMergeChange(String widgetId) {
-        log("Function handleMergeChange is not implemented yet. Caused by widget with id " + widgetId);
+    protected void handleMergeChange(AppState sharedState, AppState sessionState, String widgetIdShared ,String widgetId) {
+        Widget widgetFromShared = sharedState.getWidget(widgetIdShared);
+        Widget widgetFromSession = sessionState.getWidget(widgetId);
+        Widget mergedWidget = mergeSameWidgets(widgetFromShared, widgetFromSession);
+        mergedWidget.setNextState(widgetFromSession.getNextState());
+        doMergeStateChangesIntoShared(widgetFromShared.getNextState(), widgetFromSession.getNextState());
     }
 
     protected List<Widget> getAllVisibleActionsRecursive(Widget widget) {
