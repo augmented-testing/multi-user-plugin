@@ -423,24 +423,6 @@ public class MultiUser {
         doMergeStateChangesIntoShared(widgetFromShared.getNextState(), widgetFromSession.getNextState());
     }
 
-    protected List<Widget> getAllVisibleActionsRecursive(Widget widget) {
-        List<Widget> allWidgets = new LinkedList<>();
-
-        if (widget == null || widget.getNextState() == null) {
-            return allWidgets;
-        }
-
-        AppState nextState = widget.getNextState();
-        List<Widget> widgets = nextState.getVisibleActions();
-        allWidgets.addAll(widgets);
-
-        for (Widget item : widgets) {
-            allWidgets.addAll(getAllVisibleActionsRecursive(item));
-        }
-
-        return allWidgets;
-    }
-
     @SuppressWarnings("unchecked")
     protected Map<String, DiffType> getDiffMetaDataFromState(AppState state) {
         try {
