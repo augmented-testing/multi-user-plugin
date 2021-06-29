@@ -460,6 +460,18 @@ public class MultiUserTest extends MultiUser {
         AppState stateMiniBuy = btnToMiniBuy.getNextState();
         assertNotNull(stateMiniBuy);        
     }
+
+    @Test
+    public void testIsMarkedAsDeleted() {
+        Widget widget = createWidget("1");
+        assertFalse(isMarkedAsDeleted(widget));
+
+        widget.putMetadata("multi-user-merge-deleted-at", 0);
+        assertFalse(isMarkedAsDeleted(widget));
+
+        widget.putMetadata("multi-user-merge-deleted-at", 1624998389127l);
+        assertTrue(isMarkedAsDeleted(widget));
+    }
     
     private Widget createWidget(String id) {
         Widget widget = new Widget();
