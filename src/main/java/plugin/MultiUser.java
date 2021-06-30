@@ -23,7 +23,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -43,13 +42,16 @@ import scout.Widget;
 
 public class MultiUser {
 
-    private static final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private static final SimpleDateFormat dfFiles = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss");
     private static final String DATA_FILEPATH = "data";
-    private static final String MODEL_FILENAME = "state.json";
+    private static final String MODEL_FILENAME = "shared-state.json";
     private static final String PRODUCT_PROPERTIES_FILE = "product.properties";
 
     protected static final String META_DATA_DIFF = "multi-user-diff-widgets";
     protected static final String DELETED_AT = "multi-user-merge-deleted-at";
+
+    private static AppState stateFromSessionStart = null;
 
     protected enum DiffType {
         CREATED, DELETED, CHANGED, NO_CHANGES
@@ -68,6 +70,7 @@ public class MultiUser {
      * @return A state tree
      */
     public AppState loadState() {
+        stateFromSessionStart = null;
         String product = StateController.getProduct();
         String filePath = getFilePathForProduct(product);
 
@@ -76,11 +79,14 @@ public class MultiUser {
 
         String modelFilePath = filePath + "/" + MODEL_FILENAME;
         JSONObject jsonModel = loadJSONModel(modelFilePath);
+        
         if (jsonModel == null) {
             return new AppState("0", "Home");
         }
 
-        return parseCompleteAppState(jsonModel);
+        AppState state = parseCompleteAppState(jsonModel);
+        stateFromSessionStart = deepCopy(state);
+        return state;
     }
 
     private String getFilePathForProduct(String product) {
@@ -112,7 +118,7 @@ public class MultiUser {
             jsonState = (JSONObject) jsonParser.parse(reader);
             reader.close();
         } catch(FileNotFoundException nfe) {
-            System.out.println("State model file not found at location '"+ filePath+"'. Start with empty model.");
+            log("State model file not found at location '"+ filePath+"'. Start with empty model.");
             return null;
         } catch(Exception e) {
             e.printStackTrace();
@@ -127,28 +133,27 @@ public class MultiUser {
      * @return true if done
      */
     public Boolean saveState() {
-        AppState stateTree=StateController.getStateTree();
         String product=StateController.getProduct();
-
+        
         String productFilePath = getFilePathForProduct(product);
         
         createFolderIfNotExist(productFilePath);
         
-        String modelFilePath= productFilePath + "/" + MODEL_FILENAME;
+        String sharedModelFilePath= productFilePath + "/" + MODEL_FILENAME;
+        
+        AppState sessionState=StateController.getStateTree();
+        annotateDiffsInStates(stateFromSessionStart, sessionState);   
 
-        // Save state tree
-        if(!saveStateModel(modelFilePath, stateTree)) {
+        JSONObject jsonSharedModel = loadJSONModel(sharedModelFilePath);
+        AppState currentSharedState = parseCompleteAppState(jsonSharedModel);
+        AppState mergedSharedModel = mergeStateChanges(currentSharedState, sessionState);
+
+        if(!saveStateModel(sharedModelFilePath, mergedSharedModel)) {
             return false;
         }
         
-        // Get weekday number
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-        
-        // Save a backup
-        modelFilePath += dayOfWeek;
-        if(!saveStateModel(modelFilePath, stateTree)) {
+        String sessionModelFilePath = productFilePath + "/" + "session-state-" + dfFiles.format(new Date()) + ".json";
+        if(!saveStateModel(sessionModelFilePath, sessionState)) {
             return false;
         }
 
@@ -185,6 +190,7 @@ public class MultiUser {
             jsonState = appStateAsJSONObject(appState).toJSONString();
             
         } catch (Exception e) {
+            log("Error while parsing app state as JSON object: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
@@ -196,9 +202,12 @@ public class MultiUser {
             printWriter.close();
             fileWriter.close();
         } catch (Exception e) {
+            log("Unable to save state model as file: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
+
+        log("Save state model file: " + filePath);
         return true;	
     }
 
@@ -303,7 +312,15 @@ public class MultiUser {
             }
             
             widgetDiff.put(afterWidget.getId(), diffType);
-            annotateDiffsInStates(nextStateFromWidgetBefore, afterWidget.getNextState());
+            
+            if (nextStateFromWidgetBefore != null && nextStateFromWidgetBefore.isHome()) {
+                nextStateFromWidgetBefore = null;
+            }
+            AppState nextStateFromWidgetAfter = afterWidget.getNextState();
+            if (nextStateFromWidgetAfter != null && nextStateFromWidgetAfter.isHome()) {
+                nextStateFromWidgetAfter = null;
+            }
+            annotateDiffsInStates(nextStateFromWidgetBefore, nextStateFromWidgetAfter);
         }
 
         remainingBeforeWidgets.forEach(deletedWidget -> widgetDiff.put(deletedWidget.getId(), DiffType.DELETED));
@@ -324,7 +341,9 @@ public class MultiUser {
         AppState result = deepCopy(sharedState);
 
         doMergeStateChangesIntoShared(result, sessionState);
-         
+        
+        result.getVisibleStates().forEach( s -> s.removeMetadata(META_DATA_DIFF));
+ 
         return result;
     }
 
@@ -466,7 +485,7 @@ public class MultiUser {
     }
 
     private void log(String message) {
-        String now = formatter.format(new Date());
+        String now = df.format(new Date());
         System.out.printf("[%s] %s \n", now, message);
     }
 
