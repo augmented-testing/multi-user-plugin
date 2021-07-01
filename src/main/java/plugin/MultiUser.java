@@ -44,8 +44,8 @@ import scout.Widget;
 
 public class MultiUser {
 
-    private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-    private static final SimpleDateFormat dfFiles = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss");
+    private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat dfFiles = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
     private static final String DATA_FILEPATH = "data";
     private static final String MODEL_FILENAME = "shared-state.json";
     private static final String PRODUCT_PROPERTIES_FILE = "product.properties";
