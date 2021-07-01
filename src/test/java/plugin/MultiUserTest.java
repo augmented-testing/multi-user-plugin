@@ -14,7 +14,6 @@ import java.awt.Rectangle;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +32,7 @@ import scout.Widget.WidgetVisibility;
 public class MultiUserTest extends MultiUser {
 
     public MultiUserTest() {
-        super(new ArrayList<String>());
+        super(true);
     }
 
     @Test

@@ -33,6 +33,8 @@ import java.util.Properties;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import javax.swing.JFileChooser;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -52,17 +54,46 @@ public class MultiUser {
     protected static final String DELETED_AT = "multi-user-merge-deleted-at";
 
     private static AppState stateFromSessionStart = null;
+    private static String sharedModelFolder=null;
 
     protected enum DiffType {
         CREATED, DELETED, CHANGED, NO_CHANGES
     }
 
     public MultiUser() {
-        StateController.setProducts(getFolders(DATA_FILEPATH));
+        this(false);
     }
 
-    public MultiUser(List<String> products) {
+    public MultiUser(boolean skipInit) {
+        if (skipInit) {
+            return;
+        }
+
+        List<String> products = getFolders(DATA_FILEPATH);
         StateController.setProducts(products);
+
+        sharedModelFolder = StateController.getSystemProperty("multiUserPlugin.sharedModelFolder", DATA_FILEPATH);
+    }
+
+    public void enablePlugin() {
+        sharedModelFolder = chooseFolderWithDialog();
+        StateController.setSystemProperty("multiUserPlugin.sharedModelFolder", sharedModelFolder);    
+    }
+    
+    protected String chooseFolderWithDialog() {
+        File currentWorkingDir = new File(".");
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(currentWorkingDir);
+        chooser.setDialogTitle("[Multi-User-Plugin] Select shared model folder.");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        if(chooser.showOpenDialog(null)!=JFileChooser.APPROVE_OPTION) {
+           return currentWorkingDir.getAbsolutePath();
+        }
+        
+        return chooser.getSelectedFile().getAbsolutePath();
     }
 
     /**
@@ -77,11 +108,13 @@ public class MultiUser {
         Properties properties = loadProductProperties(product, filePath);
         StateController.setProductProperties(properties);
 
-        String modelFilePath = filePath + "/" + MODEL_FILENAME;
-        JSONObject jsonModel = loadJSONModel(modelFilePath);
+        String sharedModelFilePath = sharedModelFolder + "/" + MODEL_FILENAME;
+        JSONObject jsonModel = loadJSONModel(sharedModelFilePath);
         
         if (jsonModel == null) {
-            return new AppState("0", "Home");
+            AppState emptyState = new AppState("0", "Home");
+            saveStateModel(sharedModelFilePath, emptyState);
+            return emptyState;
         }
 
         AppState state = parseCompleteAppState(jsonModel);
@@ -139,7 +172,7 @@ public class MultiUser {
         
         createFolderIfNotExist(productFilePath);
         
-        String sharedModelFilePath= productFilePath + "/" + MODEL_FILENAME;
+        String sharedModelFilePath= sharedModelFolder + "/" + MODEL_FILENAME;
         
         AppState sessionState=StateController.getStateTree();
         annotateDiffsInStates(stateFromSessionStart, sessionState);   
