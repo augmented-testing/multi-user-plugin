@@ -4,6 +4,7 @@
 
 package plugin;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -37,6 +38,7 @@ public class JSONStateParser {
         JSONObject json = new JSONObject();
 
         json.put("product", StateController.getProduct());
+        json.put("last-updated-at-ms", Instant.now().toEpochMilli());
 
         List<JSONObject> paths = state.getPaths().stream()
             .map(p -> pathAsJSONObject(p))
