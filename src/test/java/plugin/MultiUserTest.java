@@ -461,6 +461,17 @@ public class MultiUserTest extends MultiUser {
     }
 
     @Test
+    public void testMarkAsDeleted() {
+        Widget w1 = createWidget("1");
+        Widget w2 = createWidget("2");
+
+        markAsDeleted(w1);
+
+        assertTrue(isMarkedAsDeleted(w1));
+        assertFalse(isMarkedAsDeleted(w2));    
+    }
+
+    @Test
     public void testIsMarkedAsDeleted() {
         Widget widget = createWidget("1");
         assertFalse(isMarkedAsDeleted(widget));
