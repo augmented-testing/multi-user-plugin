@@ -488,6 +488,7 @@ public class MultiUserTest extends MultiUser {
         widget.setId(id);
         widget.setWidgetStatus(WidgetStatus.LOCATED);
         widget.setCreatedBy("Mr. Tester"); 
+        widget.setWidgetType(WidgetType.ACTION);
         widget.setWidgetSubtype(WidgetSubtype.LEFT_CLICK_ACTION);
         widget.setWidgetVisibility(WidgetVisibility.VISIBLE);
         widget.setLocationArea(new Rectangle(970,117,14,36));
