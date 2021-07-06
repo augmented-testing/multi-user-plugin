@@ -286,11 +286,19 @@ public class MultiUser {
             return null;
         }
 
-        if (value == null || value.isEmpty()) {
+        if (isNotEmpty(value) && isNotEmpty(otherValue)) {
+            return value + " | " + otherValue;
+        }
+
+        if (isNotEmpty(otherValue)) {
             return otherValue;
         } 
 
         return value;
+    }
+
+    private boolean isNotEmpty(String text) {
+        return text != null && !text.isEmpty();
     }
 
     protected Widget mergeSameWidgets(Widget widget, Widget other) {

@@ -261,7 +261,7 @@ public class MultiUserTest extends MultiUser {
         assertEquals("val2", chooseStrValue(null, "val2"));
         assertEquals("val3", chooseStrValue("", "val3"));
         assertEquals("val4", chooseStrValue("val4", ""));
-        assertEquals("val5", chooseStrValue("val5", "val6"));
+        assertEquals("val5 | val6", chooseStrValue("val5", "val6"));
     }
 
     @Test
