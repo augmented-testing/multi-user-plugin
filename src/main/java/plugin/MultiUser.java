@@ -330,11 +330,11 @@ public class MultiUser {
         List<Widget> afterWidgets = new LinkedList<>();
 
         if (before != null) {
-            remainingBeforeWidgets = new LinkedList<>(before.getVisibleActions()); 
+            remainingBeforeWidgets = new LinkedList<>(before.getVisibleWidgets()); 
         }
 
         if (after != null) {
-            afterWidgets = new LinkedList<>(after.getVisibleActions());
+            afterWidgets = new LinkedList<>(after.getVisibleWidgets());
         }
 
         Map<String, DiffType> widgetDiff = new HashMap<>();
