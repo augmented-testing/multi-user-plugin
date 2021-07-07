@@ -58,10 +58,6 @@ public class MultiUserTest extends MultiUser {
         assertFalse(isSameWidget(widget, other));
 
         other = createWidget("1234");
-        other.setWidgetType(WidgetType.ISSUE);
-        assertFalse(isSameWidget(widget, other));
-        
-        other = createWidget("1234");
         other.setWidgetSubtype(WidgetSubtype.RIGHT_CLICK_ACTION);
         assertFalse(isSameWidget(widget, other));
     }
@@ -90,6 +86,21 @@ public class MultiUserTest extends MultiUser {
         other = createWidget("1234");
         other.putMetadata("class", "btn"); 
         assertFalse(isSameWidget(widget, other));
+    }
+
+    @Test
+    public void testIsSameWidget_DifferentTypes() {
+        Widget actionWidget = createWidget("1234");
+
+        Widget issueWidget = createWidget("5678");
+        issueWidget.setWidgetType(WidgetType.ISSUE); 
+
+        Widget checkWidget = createWidget("90123");
+        checkWidget.setWidgetType(WidgetType.CHECK);
+
+        assertTrue(isSameWidget(actionWidget, issueWidget)); 
+        assertTrue(isSameWidget(actionWidget, checkWidget)); 
+        assertTrue(isSameWidget(checkWidget, issueWidget)); 
     }
 
     @Test

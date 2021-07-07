@@ -271,8 +271,7 @@ public class MultiUser {
         boolean isSameTag = hasEqualMetaData("tag", widget, other);
         boolean isSameClass = hasEqualMetaData("class", widget, other);
         
-        return isSameType
-            && isSameSubType
+        return isSameSubType
             && isSameVisibility
             && isSameHref 
             && isSameXpath
