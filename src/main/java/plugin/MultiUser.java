@@ -261,7 +261,6 @@ public class MultiUser {
             return false;
         }
 
-        boolean isSameType = widget.getWidgetType().equals(other.getWidgetType());
         boolean isSameSubType = widget.getWidgetSubtype().equals(other.getWidgetSubtype());
         boolean isSameVisibility = widget.getWidgetVisibility().equals(other.getWidgetVisibility());
 
