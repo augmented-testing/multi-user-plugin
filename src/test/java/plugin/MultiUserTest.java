@@ -320,7 +320,7 @@ public class MultiUserTest extends MultiUser {
         assertNotNull(stateChanged);
         assertEquals("0", stateChanged.getId());
         assertEquals("Home", stateChanged.getBookmark());
-        assertEquals(1, stateChanged.getVisibleActions().size());
+        assertEquals(1, stateChanged.getVisibleWidgets().size());
 
         assertEquals(DiffType.NO_CHANGES,  getDiffMetaDataFromState(stateChanged).get("btnToMac"));
         

@@ -445,11 +445,11 @@ public class MultiUser {
 
     protected void handleMergeCreation(AppState sharedState, AppState sessionState, String widgetId) {
         Widget createdWidget = sessionState.getWidget(widgetId);
-        int foundIndex = indexOfSameWidget(createdWidget, sharedState.getVisibleActions());
+        int foundIndex = indexOfSameWidget(createdWidget, sharedState.getVisibleWidgets());
         boolean isPresentInSharedState = foundIndex >= 0;
         
         if (isPresentInSharedState) {
-            String widgetIdShared = sharedState.getVisibleActions().get(foundIndex).getId();
+            String widgetIdShared = sharedState.getVisibleWidgets().get(foundIndex).getId();
             handleMergeChange(sharedState, sessionState, widgetIdShared, widgetId);
             return;
         }
