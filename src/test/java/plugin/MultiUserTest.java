@@ -14,6 +14,7 @@ import java.awt.Rectangle;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -274,30 +275,62 @@ public class MultiUserTest extends MultiUser {
         assertEquals("val4", chooseStrValue("val4", ""));
         assertEquals("val5 | val6", chooseStrValue("val5", "val6"));
     }
-
+ 
     @Test
-    public void testMergeSameWidgets() {
+    public void testMergeWidgetChanges_MetaData() {
         Widget widget = createWidget("1");
         widget.putMetadata("only-in-widget", "abc");
         widget.putMetadata("coverage", "100");
         widget.setNextState(new AppState("2212", "next-state"));
         
-        Widget other = createWidget("2");
-        other.putMetadata("only-in-other-widget", "def");
-        other.putMetadata("coverage", "90");
-        other.setNextState(new AppState("33433", "other-next-state")); 
+        Widget changed = createWidget("2");
+        changed.putMetadata("only-in-other-widget", "def");
+        changed.putMetadata("coverage", "90");
+        changed.setNextState(new AppState("33433", "other-next-state"));  
+
+        mergeWidgetChanges(widget, changed);
+
+        assertEquals("90", widget.getMetadata("coverage"));
+        assertEquals("abc", widget.getMetadata("only-in-widget"));
+        assertEquals("def", widget.getMetadata("only-in-other-widget"));
+    }
+
+    @Test
+    public void testMergeWidgetChanges_CheckToIssue() {
+        Date someDate = new Date(1625579390604l);
         
-        Widget result = mergeSameWidgets(widget, other);
+        Widget widget = createWidget("1");
+        widget.setWidgetType(WidgetType.CHECK);
 
-        assertNotNull(result);
-        assertTrue(isSameWidget(result, widget));
-        assertEquals("1", result.getId());
+        Widget issueWidget = createWidget("1");
+        issueWidget.setWidgetType(WidgetType.ISSUE);
+        issueWidget.setReportedText("wrong label");
+        issueWidget.setReportedDate(someDate);
 
-        assertEquals("100", result.getMetadata("coverage"));
-        assertEquals("abc", result.getMetadata("only-in-widget"));
-        assertEquals("def", result.getMetadata("only-in-other-widget"));
+        mergeWidgetChanges(widget, issueWidget);
+        
+        assertEquals(WidgetType.ISSUE, widget.getWidgetType());
+        assertEquals("wrong label", widget.getReportedText());
+        assertEquals(someDate, widget.getReportedDate());
+    }
 
-        assertNull(result.getNextState());
+    @Test
+    public void testMergeWidgetChanges_IssueMerge() {
+        Widget widget = createWidget("1");
+        Widget changed = createWidget("2");
+        widget.setWidgetType(WidgetType.ISSUE);
+        changed.setWidgetType(WidgetType.ISSUE);
+        widget.setReportedText("missing euro sign");
+        changed.setReportedText("wrong currency format");
+        Date reportedAt1 = new Date(1625579390604l);
+        Date reportedAt2 = new Date(1625579380412l);
+        widget.setReportedDate(reportedAt1);
+        changed.setReportedDate(reportedAt2);
+
+        mergeWidgetChanges(widget, changed);
+
+        assertEquals("missing euro sign | wrong currency format", widget.getReportedText());
+        assertEquals(reportedAt2, widget.getReportedDate());
     }
 
     @Test

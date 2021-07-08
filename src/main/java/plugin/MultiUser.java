@@ -28,9 +28,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Properties;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import javax.swing.JFileChooser;
@@ -298,19 +298,19 @@ public class MultiUser {
     private boolean isNotEmpty(String text) {
         return text != null && !text.isEmpty();
     }
+    
+    protected void mergeWidgetChanges(Widget widget, Widget changed) {
+        log("Merge changes from widgets with ID '"+widget.getId()+"' into '"+changed.getId()+"'" );
+        changed.getMetadataKeys().forEach(key -> widget.putMetadata(key, changed.getMetadata(key)));
 
-    protected Widget mergeSameWidgets(Widget widget, Widget other) {
-        log("Merge widgets with ID '"+widget.getId()+"' and '"+other.getId()+"'" );
+        widget.setWidgetType(changed.getWidgetType());
         
-        Widget result = new Widget(widget);
-        result.setId(widget.getId());
+        String reported = chooseStrValue(widget.getReportedText(), changed.getReportedText()); 
+        widget.setReportedText(reported);
 
-        other.getMetadataKeys().stream()
-            .filter(key -> widget.getMetadata(key) == null)
-            .forEach(key -> result.putMetadata(key, other.getMetadata(key)));
-
-        result.setNextState(null);
-        return result;
+        widget.setReportedDate(changed.getReportedDate());
+        widget.setResolvedDate(changed.getResolvedDate());
+        widget.setResolvedText(changed.getResolvedText());
     }
 
     /**
@@ -448,8 +448,11 @@ public class MultiUser {
         boolean isPresentInSharedState = foundIndex >= 0;
         
         if (isPresentInSharedState) {
-            String widgetIdShared = sharedState.getVisibleWidgets().get(foundIndex).getId();
-            handleMergeChange(sharedState, sessionState, widgetIdShared, widgetId);
+            Widget widgetFromShared  = sharedState.getVisibleWidgets().get(foundIndex);
+            Widget widgetFromSession = sessionState.getWidget(widgetId);
+            mergeWidgetChanges(widgetFromShared, widgetFromSession);
+            
+            doMergeStateChangesIntoShared(widgetFromShared.getNextState(), widgetFromSession.getNextState());
             return;
         }
 
@@ -459,7 +462,7 @@ public class MultiUser {
     protected void handleMergeNoChange(AppState sharedState, AppState sessionState, String widgetId) {
         Widget originalWidget = sharedState.getWidget(widgetId);
         Widget otherWidget = sessionState.getWidget(widgetId);
-        
+         
         AppState nextStateFromShared = null;
         AppState nextStateFromSession = null;
         
@@ -473,12 +476,8 @@ public class MultiUser {
         doMergeStateChangesIntoShared(nextStateFromShared, nextStateFromSession);
     }
 
-    protected void handleMergeChange(AppState sharedState, AppState sessionState, String widgetIdShared ,String widgetId) {
-        Widget widgetFromShared = sharedState.getWidget(widgetIdShared);
-        Widget widgetFromSession = sessionState.getWidget(widgetId);
-        Widget mergedWidget = mergeSameWidgets(widgetFromShared, widgetFromSession);
-        mergedWidget.setNextState(widgetFromSession.getNextState());
-        doMergeStateChangesIntoShared(widgetFromShared.getNextState(), widgetFromSession.getNextState());
+    protected void handleMergeChange(AppState sharedState, AppState sessionState, String widgetId) {
+        log("handleMergeChange() is not implemented yet");
     }
 
     @SuppressWarnings("unchecked")
