@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -118,8 +119,28 @@ public class MultiUser {
         }
 
         AppState state = parseCompleteAppState(jsonModel);
+        removeAllMarkedAsDeletedWidgets(state);
+
         stateFromSessionStart = deepCopy(state);
         return state;
+    }
+
+    protected void removeAllMarkedAsDeletedWidgets(AppState state) {
+        Iterator<Widget> iter = state.getAllIncludingChildWidgets().iterator();
+        while(iter.hasNext()) {
+            Widget widget = iter.next();
+            if (!isMarkedAsDeleted(widget)) {
+                continue;
+            }
+
+            AppState widgetState = state.findState(widget);
+            if (widgetState == null) {
+                continue;
+            }
+
+            log("Remove as deleted marked widget with id " + widget.getId() + " from state with id " + widgetState.getId());
+            widgetState.removeWidget(widget);
+        }
     }
 
     private String getFilePathForProduct(String product) {
