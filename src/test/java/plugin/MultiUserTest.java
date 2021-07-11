@@ -16,6 +16,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -525,6 +526,29 @@ public class MultiUserTest extends MultiUser {
 
         widget.putMetadata("multi-user-merge-deleted-at", 1624998389127l);
         assertTrue(isMarkedAsDeleted(widget));
+    }
+
+    @Test
+    public void testRemoveAllMarkedAsDeletedWidgets() {
+        AppState home = new AppState("0", "Home");
+        AppState nextState = new AppState("1", "next");
+        Widget w1 = createWidget("1");
+        Widget w2 = createWidget("2");
+        w2.setNextState(nextState);
+        markAsDeleted(w2);
+        
+        home.addWidget(w1);
+        home.addWidget(w2);
+
+        Widget w3 = createWidget("3");
+        markAsDeleted(w3);
+        nextState.addWidget(w3);
+    
+        removeAllMarkedAsDeletedWidgets(home);        
+        List<Widget> results = home.getAllIncludingChildWidgets();
+
+        assertEquals(1, results.size());
+        assertEquals("1", results.get(0).getId());
     }
     
     private Widget createWidget(String id) {
