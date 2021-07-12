@@ -72,7 +72,7 @@ public class JSONStateParser {
     @SuppressWarnings("unchecked")
     public static JSONObject stateTreeAsJSONObject(AppState state, Map<String, Widget> allUsedWidgets) {
         JSONObject json = new JSONObject();
-        json.put("id", state.getId());
+        json.put("state-id", state.getId());
         json.put("product-version", state.getProductVersions());
         json.put("bookmarks", state.getBookmark());
         
@@ -215,7 +215,7 @@ public class JSONStateParser {
     }
 
     public static AppState parseState(JSONObject jsonState, List<Widget> allWidgets) {
-        String id = (String) jsonState.get("id");
+        String id = (String) jsonState.get("state-id");
         String bookmark = (String) jsonState.get("bookmarks");
         JSONArray jsonWidgets = (JSONArray) jsonState.get("visible-widgets");
         

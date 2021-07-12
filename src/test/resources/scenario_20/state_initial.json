@@ -484,7 +484,7 @@
                   "no_clones": "1",
                   "no_widgets": "1"
                 },
-                "id": "16245214324682"
+                "state-id": "16245214324682"
               },
               "id": "btnToAir"
             },
@@ -509,7 +509,7 @@
                         "no_clones": "1",
                         "no_widgets": "0"
                       },
-                      "id": "16245260785223"
+                      "state-id": "16245260785223"
                     },
                     "id": "btnToPro13TechInfo"
                   }
@@ -522,7 +522,7 @@
                   "no_clones": "1",
                   "no_widgets": "1"
                 },
-                "id": "16245214666204"
+                "state-id": "16245214666204"
               },
               "id": "btnToPro13"
             }
@@ -535,7 +535,7 @@
             "no_clones": "1",
             "no_widgets": "2"
           },
-          "id": "16245214140621"
+          "state-id": "16245214140621"
         },
         "id": "btnToMac"
       }
@@ -549,7 +549,7 @@
       "no_clones": "1",
       "no_widgets": "1"
     },
-    "id": "0"
+    "state-id": "0"
   },
   "issues": []
 }

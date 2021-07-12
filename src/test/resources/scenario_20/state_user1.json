@@ -430,14 +430,14 @@
                       ],
                       "product-version": [],
                       "meta-data": {},
-                      "id": "16245260290461"
+                      "state-id": "16245260290461"
                     },
                     "id": "btnToAirTechInfo"
                   }
                 ],
                 "product-version": [],
                 "meta-data": {},
-                "id": "16245214324682"
+                "state-id": "16245214324682"
               },
               "id": "btnToAir"
             },
@@ -462,7 +462,7 @@
                         "no_clones": "1",
                         "no_widgets": "1"
                       },
-                      "id": "16245262879588"
+                      "state-id": "16245262879588"
                     },
                     "id": "btnToMiniTechInfo"
                   }
@@ -475,7 +475,7 @@
                   "no_clones": "1",
                   "no_widgets": "1"
                 },
-                "id": "16245262788667"
+                "state-id": "16245262788667"
               },
               "id": "btnToMini"
             }
@@ -488,7 +488,7 @@
             "no_clones": "1",
             "no_widgets": "2"
           },
-          "id": "16245214140621"
+          "state-id": "16245214140621"
         },
         "id": "btnToMac"
       }
@@ -502,7 +502,7 @@
       "no_clones": "1",
       "no_widgets": "1"
     },
-    "id": "0"
+    "state-id": "0"
   },
   "issues": []
 }

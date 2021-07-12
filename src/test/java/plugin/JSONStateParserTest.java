@@ -165,7 +165,7 @@ public class JSONStateParserTest {
         assertNotNull(result.get("next-state"));
         
         JSONObject jsonNextState = (JSONObject)result.get("next-state");
-        assertEquals("100", jsonNextState.get("id"));
+        assertEquals("100", jsonNextState.get("state-id"));
         List<String> productVersions = (List<String>)jsonNextState.get("product-version"); 
         assertEquals("1.0", productVersions.get(0));
         assertEquals("next state", jsonNextState.get("bookmarks"));  

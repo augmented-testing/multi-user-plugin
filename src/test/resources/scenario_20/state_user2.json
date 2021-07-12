@@ -486,14 +486,14 @@
                       ],
                       "product-version": [],
                       "meta-data": {},
-                      "id": "16245260785223"
+                      "state-id": "16245260785223"
                     },
                     "id": "btnToPro13TechInfo"
                   }
                 ],
                 "product-version": [],
                 "meta-data": {},
-                "id": "16245214666204"
+                "state-id": "16245214666204"
               },
               "id": "btnToPro13"
             },
@@ -512,14 +512,14 @@
                       ],
                       "product-version": [],
                       "meta-data": {},
-                      "id": "162452673176812"
+                      "state-id": "162452673176812"
                     },
                     "id": "btnToDisplayTechInfo"
                   }
                 ],
                 "product-version": [],
                 "meta-data": {},
-                "id": "162452671587011"
+                "state-id": "162452671587011"
               },
               "id": "btnToDisplay"
             },
@@ -544,7 +544,7 @@
                         "no_clones": "1",
                         "no_widgets": "0"
                       },
-                      "id": "16246107184212"
+                      "state-id": "16246107184212"
                     },
                     "id": "btnToMacMiniBuy"
                   }
@@ -557,7 +557,7 @@
                   "no_clones": "1",
                   "no_widgets": "0"
                 },
-                "id": "16246106546201"
+                "state-id": "16246106546201"
               },
               "id": "btnToMacMini"
             }
@@ -570,7 +570,7 @@
             "no_clones": "1",
             "no_widgets": "2"
           },
-          "id": "16245214140621"
+          "state-id": "16245214140621"
         },
         "id": "btnToMac"
       }
@@ -584,7 +584,7 @@
       "no_clones": "1",
       "no_widgets": "1"
     },
-    "id": "0"
+    "state-id": "0"
   },
   "issues": []
 }
