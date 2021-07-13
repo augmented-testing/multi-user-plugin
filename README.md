@@ -13,6 +13,8 @@ The main repository for Scout can be found [here](https://github.com/augmented-t
 Scout is developed in Java and therefore requires the Java Runtime Environment (JRE).
 JRE version 8 or later is suitable for running Scout and its plugins.
 
+Take a look at the [Actions](https://github.com/augmented-testing/multi-user-plugin/actions) page to see which versions of Java are tested automatically as part of the CI process.
+
 ### Build and Run
 
 Build automation is accomplished using a Maven. Use the following Maven command:
