@@ -49,8 +49,8 @@ public class JSONStateParser {
         
         json.put("state", stateTreeAsJSONObject(state, allUsedWidgets));
 
-        List<JSONObject> issues = state.getAllIssues().stream()
-            .map(i -> widgetAsJSONObject(i))
+        List<String> issues = state.getAllIssues().stream()
+            .map(w -> w.getId()) 
             .collect(Collectors.toList());
         json.put("issues", issues);
 
