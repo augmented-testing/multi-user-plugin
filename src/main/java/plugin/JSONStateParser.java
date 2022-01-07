@@ -106,7 +106,7 @@ public class JSONStateParser {
         json.put("product-version", path.getProductVersion());
         json.put("session-id", path.getSessionId());
         json.put("session-duration", path.getSessionDuration());
-        json.put("created-at", path.getCreatedDate().toString());
+        json.put("created-at-ms", path.getCreatedDate().getTime());
         json.put("tester", path.getTester());
         
         List<String> widgetIDs = path.getWidgets().stream()
