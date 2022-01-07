@@ -8,6 +8,7 @@ import static plugin.JSONStateParser.locationAreaAsJSONObject;
 import static plugin.JSONStateParser.metadataAsJSONObject;
 import static plugin.JSONStateParser.widgetAsJSONObject;
 import static plugin.JSONStateParser.stateWidgetAsSimpleJSONObject;
+import static plugin.JSONStateParser.pathAsJSONObject;
 
 import java.awt.Rectangle;
 import java.io.FileNotFoundException;
@@ -24,6 +25,7 @@ import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
 import scout.AppState;
+import scout.Path;
 import scout.Widget;
 import scout.Widget.WidgetStatus;
 import scout.Widget.WidgetSubtype;
@@ -43,8 +45,30 @@ public class JSONStateParserTest {
     }
 
     @Test
-    public void testPathAsJSONObject() {
-        // TODO: Implement
+    public void testPathAsJSONObject() throws Exception {
+        String id = "900";
+        String pVersion = "v123";
+        String sessionId = "500";
+        long createdAt = 1623332401000L; 
+        String tester = "Andreas";
+
+        Path path = new Path(id);
+        path.setProductVersion(pVersion);
+        path.setSessionId(sessionId);
+        path.setCreatedDate(new Date(createdAt));
+        path.setSessionDuration(90000L);
+        path.setTester(tester);
+
+        JSONObject result = pathAsJSONObject(path);
+
+        assertNotNull(result);
+        assertEquals(id, result.get("id"));
+        assertEquals(pVersion, result.get("product-version"));
+        assertEquals(sessionId, result.get("session-id"));
+        assertEquals(90000L, result.get("session-duration"));
+        assertEquals(createdAt, result.get("created-at-ms"));
+        assertEquals(tester, result.get("tester"));
+
     }
 
     @Test
