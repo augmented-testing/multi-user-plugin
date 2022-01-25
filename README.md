@@ -38,7 +38,7 @@ You can find more information about how to manage Java projects in VSCode follow
 
 ## License
 
-Copyright (c) 2021 Andreas Bauer
+Copyright (c) 2021-2022 Andreas Bauer
 
 This work (source code) is licensed under [MIT](./LICENSES/MIT.txt).
 
